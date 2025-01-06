@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://djw654otxmara"]
+
+[ext_resource type="PackedScene" uid="uid://b5t0rkgft1eid" path="res://assets/houses/Blacksmith-col.glb" id="1_sylo2"]
+
+[node name="Blacksmith-col2" instance=ExtResource("1_sylo2")]

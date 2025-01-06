@@ -1,0 +1,121 @@
+[gd_scene load_steps=14 format=3 uid="uid://caun3oc3wgcil"]
+
+[ext_resource type="PackedScene" uid="uid://csfynr85reu21" path="res://scenes/map/map.tscn" id="1_86irn"]
+[ext_resource type="Script" path="res://scenes/main-game/main_game.gd" id="1_pkuit"]
+[ext_resource type="PackedScene" uid="uid://b6gle7nwge0v" path="res://scenes/player/player.tscn" id="2_42von"]
+[ext_resource type="PackedScene" uid="uid://baja4khnbnws8" path="res://scenes/asset-scenes/chest.tscn" id="3_6irju"]
+[ext_resource type="PackedScene" uid="uid://t6gifjw3784n" path="res://scenes/asset-scenes/pickup/pick_up.tscn" id="5_lmfbx"]
+[ext_resource type="Resource" uid="uid://b47i6084unn6m" path="res://main_inventory/item/items/blue_book.tres" id="6_2bqi1"]
+[ext_resource type="PackedScene" uid="uid://dfp3qjta7a1ah" path="res://scenes/NPC/npc.tscn" id="7_cmytp"]
+[ext_resource type="Script" path="res://main_inventory/inventory/slot_data.gd" id="7_urr3s"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w5a72"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_2uiwk"]
+sky_material = SubResource("ProceduralSkyMaterial_w5a72")
+
+[sub_resource type="Environment" id="Environment_drfag"]
+background_mode = 2
+sky = SubResource("Sky_2uiwk")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Resource" id="Resource_6fsef"]
+script = ExtResource("7_urr3s")
+item_data = ExtResource("6_2bqi1")
+quantity = 1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6dxij"]
+radius = 2.0
+
+[node name="MainGame" type="Node3D"]
+script = ExtResource("1_pkuit")
+
+[node name="Env" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Env"]
+transform = Transform3D(-0.847076, 0.460269, -0.265736, 2.78059e-08, 0.5, 0.866025, 0.531472, 0.733589, -0.423538, 0, 3.03655, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Env"]
+environment = SubResource("Environment_drfag")
+
+[node name="Player" parent="." instance=ExtResource("2_42von")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 650.638, 0.0923183, 409)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.986211, 0, -0.165495, 0, 1, 0, 0.165495, 0, 0.986211, 647.405, 1.45911, 408.695)
+use_collision = true
+size = Vector3(1.15186, 0.218262, 2.99182)
+
+[node name="Chest" parent="." instance=ExtResource("3_6irju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 651.94, 0.630868, 407.945)
+
+[node name="PickUp" parent="." instance=ExtResource("5_lmfbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 650.638, 1.57443, 407.945)
+slot_data = SubResource("Resource_6fsef")
+
+[node name="Map" parent="." instance=ExtResource("1_86irn")]
+
+[node name="NPC" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_cmytp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 697.098, 0.0923183, 361.341)
+player = NodePath("../Player")
+
+[node name="Idle" parent="NPC/StateMchine" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../../../Player")
+
+[node name="Follow" parent="NPC/StateMchine" index="1" node_paths=PackedStringArray("player")]
+player = NodePath("../../../Player")
+
+[node name="Wander" parent="NPC/StateMchine" index="2" node_paths=PackedStringArray("player")]
+player = NodePath("../../../Player")
+
+[node name="Attack" parent="NPC/StateMchine" index="3" node_paths=PackedStringArray("player", "enemy")]
+player = NodePath("../../../Player")
+enemy = NodePath("../..")
+
+[node name="NPC2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_cmytp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 676.958, 0.0923183, 443.088)
+player = NodePath("../Player")
+
+[node name="Idle" parent="NPC2/StateMchine" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../../../Player")
+
+[node name="Follow" parent="NPC2/StateMchine" index="1" node_paths=PackedStringArray("player")]
+player = NodePath("../../../Player")
+
+[node name="Wander" parent="NPC2/StateMchine" index="2" node_paths=PackedStringArray("player")]
+player = NodePath("../../../Player")
+
+[node name="Attack" parent="NPC2/StateMchine" index="3" node_paths=PackedStringArray("player", "enemy")]
+player = NodePath("../../../Player")
+enemy = NodePath("../..")
+
+[node name="NPC3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_cmytp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 660.927, 0.0923183, 340.008)
+player = NodePath("../Player")
+
+[node name="Idle" parent="NPC3/StateMchine" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../../../Player")
+
+[node name="Follow" parent="NPC3/StateMchine" index="1" node_paths=PackedStringArray("player")]
+player = NodePath("../../../Player")
+
+[node name="Wander" parent="NPC3/StateMchine" index="2" node_paths=PackedStringArray("player")]
+player = NodePath("../../../Player")
+
+[node name="Attack" parent="NPC3/StateMchine" index="3" node_paths=PackedStringArray("player", "enemy")]
+player = NodePath("../../../Player")
+enemy = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 650.638, 0.0923183, 405)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_6dxij")
+
+[editable path="NPC"]
+[editable path="NPC2"]
+[editable path="NPC3"]

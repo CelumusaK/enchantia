@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://co8r7es5ifw5d"]
+
+[ext_resource type="PackedScene" uid="uid://dgvp54ak3rupk" path="res://assets/houses/Herbalist-col.glb" id="1_habja"]
+
+[node name="Herbalist-col2" instance=ExtResource("1_habja")]

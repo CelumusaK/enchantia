@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://clhg2goqpsfb7"]
+
+[ext_resource type="PackedScene" uid="uid://ciw8ejwcpm6of" path="res://assets/houses/Tarven-col.glb" id="1_8132b"]
+
+[node name="Tarven-col2" instance=ExtResource("1_8132b")]
