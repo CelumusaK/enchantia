@@ -1,9 +1,13 @@
 extends Node
+class_name FSM
 
 @export var initial_state : State
 
 var current_state : State
 var states : Dictionary = {}
+
+var old_state
+var new_state
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,6 +29,8 @@ func _physics_process(delta: float) -> void:
 		current_state.Physics_Update(delta)
 
 func on_child_transition(state, new_state_name):
+	old_state = state
+	new_state = new_state_name
 	if state != current_state:
 		return
 		

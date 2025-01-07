@@ -2,12 +2,7 @@ extends CharacterBody3D
 
 @onready var twist_pivot: Node3D = $TwistPivot
 @onready var pitch_pivot: Node3D = $TwistPivot/PitchPivot
-@onready var skin: Node3D = $YBot/Armature
-@onready var camera_3d: Camera3D = $TwistPivot/PitchPivot/SpringArm3D/Camera3D
-@onready var standing: CollisionShape3D = $Standing
-@onready var crouching: CollisionShape3D = $Crouching
 @onready var ray_cast_3d: RayCast3D = $TwistPivot/PitchPivot/RayCast3D
-@onready var animation_player: AnimationPlayer = $YBot/AnimationPlayer
 
 @export var inventory_data: InventoryData = preload("res://main_inventory/test_inv.tres")
 @onready var inventory_interface: Control = $UI/InventoryInterface
@@ -27,10 +22,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
 
 	twist_pivot.rotate_y(twistinput)
 	pitch_pivot.rotate_x(pitchinput)
@@ -40,6 +31,9 @@ func _physics_process(delta: float) -> void:
 	pitchinput = 0.0
 
 	move_and_slide()
+	
+func move_input():
+	pass
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenDrag:
