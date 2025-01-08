@@ -5,7 +5,6 @@ class_name PlayerRun
 @onready var camera_3d: Camera3D = $"../../TwistPivot/PitchPivot/SpringArm3D/Camera3D"
 @onready var skin: Node3D = $"../../YBot/Armature"
 @onready var anim: AnimationTree = $"../../YBot/AnimationTree"
-@onready var check_floor: RayCast3D = $"../../TwistPivot/CheckFloor"
 
 @export var player : CharacterBody3D
 var input_dir:= Vector2.ZERO
@@ -67,5 +66,8 @@ func Physics_Update(delta: float):
 	if Input.is_action_just_pressed("jump"):
 		Transitioned.emit(self, "RunJump")
 		
-	if !check_floor.is_colliding() and !player.is_on_ceiling_only():
+	if player.velocity.y != 0:
 			Transitioned.emit(self, "Falling")
+			
+	if !player.is_on_floor():
+		Transitioned.emit(self, "Falling")

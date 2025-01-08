@@ -25,7 +25,7 @@ func Update(delta: float):
 func Physics_Update(delta: float):
 	timer += delta
 	if timer >= duration:
-		if not player.is_on_floor():
+		if player.velocity.y != 0:
 			timer = 0.0
 			Transitioned.emit(self, "Falling")
 			
