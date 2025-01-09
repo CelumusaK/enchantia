@@ -1,0 +1,15 @@
+res://scenes/player/player.tscn
+res://addons/proton_scatter/demos/assets/materials/m_bush.tres
+res://addons/proton_scatter/demos/assets/materials/m_pine_leaves.tres
+res://scenes/player/player.gd
+res://main_inventory/item/items/apple.tres
+res://main_inventory/item/items/blue_book.tres
+res://main_inventory/test_inv.tres
+res://main_inventory/inventory/inventory_interface.gd
+res://main_inventory/box_inv.tres
+res://scenes/fsm/state_mchine.gd
+res://scenes/map/map.tscn
+res://scenes/main-game/main_game.tscn
+res://scenes/NPC/npc.tscn
+res://scenes/fsm/player/crouch/player_crouch.gd
+res://scenes/fsm/player/crouch/player_crouchwalk.gd

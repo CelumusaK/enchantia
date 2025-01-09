@@ -10,8 +10,10 @@ class_name PlayerCrouch
 
 
 func Enter():
-	print("New State: ", fsm.states.get("CrouchWalk".to_lower()))
-	if fsm.old_state != fsm.states.get("CrouchWalk".to_lower()):
+	for state in fsm.states:
+		print(state)
+	print("New State: ", fsm.states.get("crouch/crouchwalk".to_lower()))
+	if fsm.old_state != fsm.states.get("crouch/crouchwalk".to_lower()):
 		anim["parameters/conditions/crouch"] = true
 		anim["parameters/CrouchIdle/conditions/crouch"] = true
 		print("Hello")
@@ -32,7 +34,7 @@ func Update(delta: float):
 	
 func Physics_Update(delta: float):
 	if Input.get_vector("left", "right", "forward", "backwards"):
-		Transitioned.emit(self, "CrouchWalk")
+		Transitioned.emit(self, "crouch/crouchwalk")
 		
 	if Input.is_action_just_pressed("crouch"):
 		anim["parameters/CrouchIdle/conditions/tostand"] = true

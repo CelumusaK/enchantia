@@ -13,11 +13,18 @@ var new_state
 func _ready() -> void:
 	for child in get_children():
 		if child is State:
-			states[child.name.to_lower()] = child
-			child.Transitioned.connect(on_child_transition)
+			register_state(child, "")
 	if initial_state:
 		initial_state.Enter()
 		current_state = initial_state
+		
+func register_state(state: Node, parent_path: String) -> void:
+	var state_path = parent_path + "/" + state.name if parent_path else state.name
+	states[state_path.to_lower()] = state
+	state.Transitioned.connect(on_child_transition)
+	for child in state.get_children():
+		if child is State:
+			register_state(child, state_path)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
