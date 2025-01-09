@@ -63,9 +63,9 @@ func interact() -> void:
 	if ray_cast_3d.is_colliding():
 		ray_cast_3d.get_collider().player_interact()
 
-func player_attack(body: Node):
-	if body.is_in_group("Enemies"):
-		print("Enemy hurt")
+func player_attack(body: Node3D):
+	if body.has_method("hurt"):
+		body.hurt()
 		
-func player_hurt():
+func hurt():
 	print("Player Hurt")

@@ -34,14 +34,14 @@ func on_child_transition(state, new_state_name):
 	if state != current_state:
 		return
 		
-	var new_state = states.get(new_state_name.to_lower())
-	if !new_state:
+	var _new_state = states.get(new_state_name.to_lower())
+	if !_new_state:
 		return
 		
 	if current_state:
 		current_state.Exit()
 		
-	current_state = new_state
+	current_state = _new_state
 	
-	if new_state:
+	if _new_state:
 		current_state.Enter()

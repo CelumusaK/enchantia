@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://t6gifjw3784n" path="res://scenes/asset-scenes/pickup/pick_up.tscn" id="5_lmfbx"]
 [ext_resource type="Resource" uid="uid://b47i6084unn6m" path="res://main_inventory/item/items/blue_book.tres" id="6_2bqi1"]
 [ext_resource type="Script" path="res://main_inventory/inventory/slot_data.gd" id="7_urr3s"]
+[ext_resource type="PackedScene" uid="uid://dfp3qjta7a1ah" path="res://scenes/NPC/npc.tscn" id="8_m5cvb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w5a72"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -25,9 +26,6 @@ glow_enabled = true
 script = ExtResource("7_urr3s")
 item_data = ExtResource("6_2bqi1")
 quantity = 1
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_6dxij"]
-radius = 2.0
 
 [node name="MainGame" type="Node3D"]
 script = ExtResource("1_pkuit")
@@ -58,8 +56,20 @@ slot_data = SubResource("Resource_6fsef")
 
 [node name="Map" parent="." instance=ExtResource("1_86irn")]
 
-[node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 650.638, 0.0923183, 405)
+[node name="NPC" parent="." instance=ExtResource("8_m5cvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 642.447, 0, 378.992)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("SphereShape3D_6dxij")
+[node name="Idle" parent="NPC/StateMchine" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../../../Player")
+
+[node name="Follow" parent="NPC/StateMchine" index="1" node_paths=PackedStringArray("player")]
+player = NodePath("../../../Player")
+
+[node name="Wander" parent="NPC/StateMchine" index="2" node_paths=PackedStringArray("player")]
+player = NodePath("../../../Player")
+
+[node name="Attack" parent="NPC/StateMchine" index="3" node_paths=PackedStringArray("player", "enemy")]
+player = NodePath("../../../Player")
+enemy = NodePath("../..")
+
+[editable path="NPC"]

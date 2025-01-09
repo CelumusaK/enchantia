@@ -21,9 +21,10 @@ func Exit():
 	anim["parameters/Locomotion/conditions/jump"] = false
 	
 func Update(delta: float):
-	timer += delta
+	pass
 	
 func Physics_Update(delta: float):
+	timer += delta
 	if timer >= duration:
 		if player.velocity.y != 0:
 			Transitioned.emit(self, "Falling")

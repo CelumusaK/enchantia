@@ -15,11 +15,13 @@ func _process(_delta: float) -> void:
 	pass
 
 func enemy_attack():
-	var body = hitbox.get_overlapping_bodies()
-	if body == null:
+	var bodies = hitbox.get_overlapping_bodies()
+	if !bodies:
 		return
-	else:
-		if body:
-			player.player_hurt()
-func enemy_hurt():
+
+	for body in bodies:
+		if body.has_method("hurt"):
+			body.hurt()
+			
+func hurt():
 	print("Enemy Hurt")
