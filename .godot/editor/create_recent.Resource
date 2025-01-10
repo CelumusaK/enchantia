@@ -1,3 +1,4 @@
+CharacterStats
 InventoryData
 ItemData
 AtlasTexture

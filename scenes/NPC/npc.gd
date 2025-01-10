@@ -1,12 +1,13 @@
 extends CharacterBody3D
+class_name Ememy
 
-@onready var hitbox: Area3D = $YBot/Armature/Hitbox
+@onready var health_bar: ProgressBar = $SubViewport/HealthBar
 
-
-@export var player : CharacterBody3D
+@export var stats: Resource
 
 func _ready() -> void:
-	pass
+	health_bar.max_value = stats.max_health
+	health_bar.value = stats.health
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
@@ -14,14 +15,8 @@ func _physics_process(delta: float) -> void:
 func _process(_delta: float) -> void:
 	pass
 
-func enemy_attack():
-	var bodies = hitbox.get_overlapping_bodies()
-	if !bodies:
-		return
-
-	for body in bodies:
-		if body.has_method("hurt"):
-			body.hurt()
-			
-func hurt():
-	print("Enemy Hurt")
+func hurt(damage: int):
+	stats.take_damage(damage)
+	
+func update_health():
+	health_bar.value = stats.health

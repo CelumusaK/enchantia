@@ -1,3 +1,8 @@
+res://scenes/fsm/enemy
+res://scenes/fsm/enemy/attack/areas
+res://
+res://scenes/fsm/player/attack/areas
+res://scenes/fsm/player
 res://scenes/fsm/player/attack
 res://assets/Character/animation
 res://scenes/fsm
@@ -12,6 +17,5 @@ res://scenes/NPC
 res://scenes/player
 res://addons/proton_scatter/demos/assets
 res://scenes/asset-scenes/houses
-res://
 res://scenes
 res://scenes/main-game

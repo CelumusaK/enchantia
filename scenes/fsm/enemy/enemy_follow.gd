@@ -3,8 +3,8 @@ class_name EnemyFollow
 
 @export var enemy : CharacterBody3D
 @export var move_speed:= 3.0
-@onready var animation_player: AnimationPlayer = $"../../YBot/AnimationPlayer"
 @onready var skin: Node3D = $"../../YBot/Armature"
+@onready var animation_player: AnimationPlayer = $"../../YBot/AnimationPlayer"
 
 @export var player : CharacterBody3D
 var dir := Vector3.ZERO

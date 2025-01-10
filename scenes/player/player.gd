@@ -1,8 +1,12 @@
 extends CharacterBody3D
+class_name Player
 
 @onready var twist_pivot: Node3D = $TwistPivot
 @onready var pitch_pivot: Node3D = $TwistPivot/PitchPivot
 @onready var ray_cast_3d: RayCast3D = $TwistPivot/PitchPivot/RayCast3D
+@onready var health_bar: ProgressBar = $UI/HealthBar
+
+@export var stats: Resource
 
 @export var inventory_data: InventoryData = preload("res://main_inventory/test_inv.tres")
 @onready var inventory_interface: Control = $UI/InventoryInterface
@@ -11,8 +15,9 @@ var twistinput = 0.0
 var pitchinput = 0.0
 var sensitivity = 0.005
 
-
 func _ready() -> void:
+	health_bar.max_value = stats.max_health
+	health_bar.value = stats.health
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	inventory_interface.set_player_inventory_data(inventory_data)
 	
@@ -67,5 +72,8 @@ func player_attack(body: Node3D):
 	if body.has_method("hurt"):
 		body.hurt()
 		
-func hurt():
-	print("Player Hurt")
+func hurt(damage: int):
+	stats.take_damage(damage)
+	
+func update_health():
+	health_bar.value = stats.health

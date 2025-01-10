@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://caun3oc3wgcil"]
+[gd_scene load_steps=14 format=3 uid="uid://caun3oc3wgcil"]
 
 [ext_resource type="PackedScene" uid="uid://csfynr85reu21" path="res://scenes/map/map.tscn" id="1_86irn"]
 [ext_resource type="Script" path="res://scenes/main-game/main_game.gd" id="1_pkuit"]
@@ -26,6 +26,9 @@ glow_enabled = true
 script = ExtResource("7_urr3s")
 item_data = ExtResource("6_2bqi1")
 quantity = 1
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_i1tu5"]
+viewport_path = NodePath("SubViewport")
 
 [node name="MainGame" type="Node3D"]
 script = ExtResource("1_pkuit")
@@ -71,5 +74,8 @@ player = NodePath("../../../Player")
 [node name="Attack" parent="NPC/StateMchine" index="3" node_paths=PackedStringArray("player", "enemy")]
 player = NodePath("../../../Player")
 enemy = NodePath("../..")
+
+[node name="HealthBar" parent="NPC" index="7"]
+texture = SubResource("ViewportTexture_i1tu5")
 
 [editable path="NPC"]
