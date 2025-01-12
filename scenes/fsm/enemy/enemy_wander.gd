@@ -42,5 +42,5 @@ func  Physics_Update(delta: float):
 	enemy.velocity.x = move_direction.x * move_speed
 	enemy.velocity.z = move_direction.y * move_speed
 
-	if direction.length() < 25 and player.stats.health != 0:
-		Transitioned.emit(self, "follow")
+	#if direction.length() < 25 and player.stats.health != 0:
+		#Transitioned.emit(self, "follow")

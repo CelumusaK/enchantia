@@ -8,7 +8,7 @@ class_name PlayerSprint
 
 @export var player : CharacterBody3D
 var input_dir:= Vector2.ZERO
-var SPEED = 15.0
+var SPEED = 10.0
 var dir := Vector3.ZERO
 var last_move_dir := Vector3.ZERO
 var rotation_speed := 10.0

@@ -1,3 +1,5 @@
+CSGBox3D
+Node3D
 MeshInstance3D
 RigidBody3D
 Sprite3D
@@ -10,5 +12,3 @@ CanvasLayer
 BoneAttachment3D
 Node
 CollisionShape3D
-Area3D
-PlayerWidekick

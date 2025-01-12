@@ -11,7 +11,7 @@ var _delta: float
 
 @export var player : CharacterBody3D
 var input_dir:= Vector2.ZERO
-var SPEED = 5.0
+var SPEED = 3.0
 var dir := Vector3.ZERO
 var last_move_dir := Vector3.ZERO
 var rotation_speed := 10.0

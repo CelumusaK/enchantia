@@ -2,7 +2,7 @@ extends State
 class_name EnemyIdle
 
 @export var enemy : CharacterBody3D
-@export var move_speed:= 5.0
+@export var move_speed:= 3.0
 @onready var animation_player: AnimationPlayer = $"../../YBot/AnimationPlayer"
 
 @export var player : CharacterBody3D
@@ -23,6 +23,6 @@ func  Physics_Update(delta: float):
 	if player.stats.health == 0:
 		Transitioned.emit(self, "Wander")
 		
-	var direction = player.global_position - enemy.global_position
-	if direction.length() > 2 and player.stats.health != 0:
-		Transitioned.emit(self, "Follow")
+	#var direction = player.global_position - enemy.global_position
+	#if direction.length() > 2 and player.stats.health != 0:
+		#Transitioned.emit(self, "Follow")
