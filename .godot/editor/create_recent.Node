@@ -1,7 +1,10 @@
-PlayerDeath
+MeshInstance3D
+RigidBody3D
 Sprite3D
 ProgressBar
 SubViewport
+PlayerDamage
+PlayerDeath
 SubViewportContainer
 CanvasLayer
 BoneAttachment3D
@@ -9,7 +12,3 @@ Node
 CollisionShape3D
 Area3D
 PlayerWidekick
-PlayerShortKick
-PlayerWideHook
-PlayerHeavyPunch
-State

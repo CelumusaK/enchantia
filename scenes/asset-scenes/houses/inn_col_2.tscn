@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cn1wewepx6ybx"]
-
-[ext_resource type="PackedScene" uid="uid://b3vovdiq2n0tu" path="res://assets/houses/Inn-col.glb" id="1_my3ik"]
-
-[node name="Inn-col2" instance=ExtResource("1_my3ik")]

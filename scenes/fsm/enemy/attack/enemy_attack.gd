@@ -21,6 +21,9 @@ func Update(delta: float):
 	timer += delta
 	enemy.look_at(player.global_position)
 func Physics_Update(delta: float):
-	if timer >= duration:
+	if player.stats.health == 0:
+		Transitioned.emit(self, "wander")
+		
+	if timer >= duration and player.stats.health != 0:
 		Transitioned.emit(self, "Follow")
 		timer = 0.0

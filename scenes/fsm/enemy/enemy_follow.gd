@@ -25,13 +25,15 @@ func Update(delta: float):
 	skin.global_rotation.y = lerp(skin.global_rotation.y, target_angle, rotation_speed * delta)
 	
 func Physics_Update(delta: float):
+	if player.stats.health == 0:
+		Transitioned.emit(self, "Wander")
 	
 	var direction = player.global_position - enemy.global_position
 	dir = direction
 
-	if direction.length() < 25:
+	if direction.length() < 25 and player.stats.health != 0:
 		enemy.velocity = direction.normalized() * move_speed
-		if direction.length() < 1.5:
+		if direction.length() < 1.5 and player.stats.health != 0:
 			enemy.velocity = Vector3.ZERO
 			Transitioned.emit(self, "Attack")
 	else:

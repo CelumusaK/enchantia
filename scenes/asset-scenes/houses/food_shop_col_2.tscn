@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bos8iq1nbd4e"]
-
-[ext_resource type="PackedScene" uid="uid://pe61rrqogm14" path="res://assets/houses/FoodShop-col.glb" id="1_6r6tj"]
-
-[node name="FoodShop-col2" instance=ExtResource("1_6r6tj")]

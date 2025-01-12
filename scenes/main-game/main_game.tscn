@@ -1,6 +1,5 @@
 [gd_scene load_steps=14 format=3 uid="uid://caun3oc3wgcil"]
 
-[ext_resource type="PackedScene" uid="uid://csfynr85reu21" path="res://scenes/map/map.tscn" id="1_86irn"]
 [ext_resource type="Script" path="res://scenes/main-game/main_game.gd" id="1_pkuit"]
 [ext_resource type="PackedScene" uid="uid://b6gle7nwge0v" path="res://scenes/player/player.tscn" id="2_42von"]
 [ext_resource type="PackedScene" uid="uid://baja4khnbnws8" path="res://scenes/asset-scenes/chest.tscn" id="3_6irju"]
@@ -22,12 +21,15 @@ sky = SubResource("Sky_2uiwk")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o0m8i"]
+albedo_color = Color(0, 0.27, 0.1485, 1)
+
 [sub_resource type="Resource" id="Resource_6fsef"]
 script = ExtResource("7_urr3s")
 item_data = ExtResource("6_2bqi1")
 quantity = 1
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_i1tu5"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_e6g6c"]
 viewport_path = NodePath("SubViewport")
 
 [node name="MainGame" type="Node3D"]
@@ -46,9 +48,10 @@ environment = SubResource("Environment_drfag")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 650.638, -0.0866265, 409)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(0.986211, 0, -0.165495, 0, 1, 0, 0.165495, 0, 0.986211, 647.405, 1.45911, 408.695)
+transform = Transform3D(909.851, 0, -89.1353, 0, 1, 0, 152.681, 0, 531.172, 652.467, -14.2891, 408.831)
 use_collision = true
 size = Vector3(1.15186, 0.218262, 2.99182)
+material = SubResource("StandardMaterial3D_o0m8i")
 
 [node name="Chest" parent="." instance=ExtResource("3_6irju")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 651.94, 0.630868, 407.945)
@@ -57,10 +60,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 651.94, 0.630868, 407.945)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 650.638, 1.57443, 407.945)
 slot_data = SubResource("Resource_6fsef")
 
-[node name="Map" parent="." instance=ExtResource("1_86irn")]
-
 [node name="NPC" parent="." instance=ExtResource("8_m5cvb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 642.447, 0, 378.992)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 644, 0, 362)
 
 [node name="Idle" parent="NPC/StateMchine" index="0" node_paths=PackedStringArray("player")]
 player = NodePath("../../../Player")
@@ -75,7 +76,7 @@ player = NodePath("../../../Player")
 player = NodePath("../../../Player")
 enemy = NodePath("../..")
 
-[node name="HealthBar" parent="NPC" index="7"]
-texture = SubResource("ViewportTexture_i1tu5")
+[node name="Sprite3D" parent="NPC" index="7"]
+texture = SubResource("ViewportTexture_e6g6c")
 
 [editable path="NPC"]

@@ -15,6 +15,8 @@ var twistinput = 0.0
 var pitchinput = 0.0
 var sensitivity = 0.005
 
+var is_kicked: bool = false
+
 func _ready() -> void:
 	health_bar.max_value = stats.max_health
 	health_bar.value = stats.health

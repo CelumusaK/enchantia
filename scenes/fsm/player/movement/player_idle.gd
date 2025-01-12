@@ -22,8 +22,7 @@ func Exit():
 	anim["parameters/conditions/idle"] = false
 	
 func Update(delta: float):
-	if player_stats.is_dead:
-		Transitioned.emit(self, "death")
+	pass
 	
 func Physics_Update(delta: float):
 	player.velocity = Vector3.ZERO
@@ -68,4 +67,9 @@ func Physics_Update(delta: float):
 		if timer > 0.3:
 			Transitioned.emit(self, "combat/widekick")
 			timer = 0.0
+	
+	if player.is_kicked:
+		Transitioned.emit(self, "damage")
 		
+	if !player.is_on_floor() or player.velocity.y != 0:
+		Transitioned.emit(self, "Falling")

@@ -20,6 +20,9 @@ func  Update(delta: float):
 	pass
 
 func  Physics_Update(delta: float):
+	if player.stats.health == 0:
+		Transitioned.emit(self, "Wander")
+		
 	var direction = player.global_position - enemy.global_position
-	if direction.length() > 2:
+	if direction.length() > 2 and player.stats.health != 0:
 		Transitioned.emit(self, "Follow")

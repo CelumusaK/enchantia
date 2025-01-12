@@ -32,12 +32,12 @@ func Update(delta: float):
 	direction.y = 0.0
 	direction = direction.normalized()
 	dir = direction
+	last_move_dir = -dir
 	
-	if direction.length() > 0.2:
-		last_move_dir = direction
-	var target_angle := Vector3.BACK.signed_angle_to(last_move_dir, Vector3.UP)
-	
-	skin.global_rotation.y = lerp(skin.global_rotation.y, target_angle, rotation_speed * delta)
+	if last_move_dir != Vector3.ZERO:
+		var target_rotation = atan2(-last_move_dir.x, -last_move_dir.z)  # Z-forward axis
+		var current_rotation = skin.rotation.y
+		skin.rotation.y = lerp_angle(current_rotation, target_rotation, rotation_speed * delta)
 	
 func Physics_Update(delta: float):
 	if Input.is_action_pressed("run"):
