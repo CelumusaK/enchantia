@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_7iypy")
+is_dead = false
 name = ""
 title = ""
 rank = ""
@@ -17,7 +18,7 @@ intelligence = 10
 constitution = 10
 charisma = 10
 wisdom = 10
-health = 100
+health = 50
 max_health = 100
 mana = 50
 max_mana = 50

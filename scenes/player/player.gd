@@ -5,10 +5,14 @@ class_name Player
 @onready var pitch_pivot: Node3D = $TwistPivot/PitchPivot
 @onready var ray_cast_3d: RayCast3D = $TwistPivot/PitchPivot/RayCast3D
 @onready var health_bar: ProgressBar = $UI/HealthBar
+@onready var camera_3d: Camera3D = $TwistPivot/PitchPivot/SpringArm3D/Camera3D
+@onready var skin: Node3D = $YBot/Armature
+@onready var hotbar_inventory: PanelContainer = $UI/HotbarInventory
+@onready var right: BoneAttachment3D = $YBot/Armature/GeneralSkeleton/BodyAttacks/Right
 
 @export var stats: Resource
 
-@export var inventory_data: InventoryData = preload("res://main_inventory/test_inv.tres")
+@export var inventory_data: InventoryData = preload("res://main_inventory/new_inv.tres")
 @onready var inventory_interface: Control = $UI/InventoryInterface
 
 var twistinput = 0.0
@@ -16,12 +20,17 @@ var pitchinput = 0.0
 var sensitivity = 0.005
 
 var is_kicked: bool = false
+@export var equipped_item: Sword
 
 func _ready() -> void:
+	PlayerMananger.player = self
 	health_bar.max_value = stats.max_health
 	health_bar.value = stats.health
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	#hotbar_inventory.set_inventory_data(inventory_data)
 	inventory_interface.set_player_inventory_data(inventory_data)
+	inventory_interface.force_close.connect(toggle_inventory_interface)
 	
 	for node in get_tree().get_nodes_in_group("external_inventory"):
 		node.toggle_inventory.connect(toggle_inventory_interface)
@@ -38,9 +47,7 @@ func _physics_process(delta: float) -> void:
 	pitchinput = 0.0
 
 	move_and_slide()
-	
-func move_input():
-	pass
+
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenDrag:
@@ -52,6 +59,9 @@ func _input(event: InputEvent) -> void:
 		
 	if Input.is_action_just_pressed("interact"):
 		interact()
+	
+	if Input.is_action_just_pressed("unequip_action"):
+		unequip_item()
 
 func toggle_inventory_interface(external_inventory_owner = null) -> void:
 	inventory_interface.visible = not inventory_interface.visible
@@ -79,3 +89,33 @@ func hurt(damage: int):
 	
 func update_health():
 	health_bar.value = stats.health
+
+func get_drop_position() -> Vector3:
+	var direction = skin.global_transform.basis.z
+	return skin.global_position + direction
+
+func heal(heal_value: int) -> void:
+	stats.heal(heal_value)
+	update_health()
+
+func unequip_item() -> void:
+	if not equipped_item or not inventory_data:
+		return  # Nothing to unequip
+	
+	# Get the item data from the equipped item
+	var item_data = equipped_item.item_data_equip
+	print(item_data)
+	print("Up Here")
+	
+	# Create SlotData and add to inventory
+	var slot_data = SlotData.new()
+	slot_data.item_data = item_data  # Link the ItemDataEquippable directly
+	slot_data.quantity = 1  # Assuming quantity is 1 for the equipped item
+	
+	# Add the item back to the inventory
+	if inventory_data.pick_up_slot_data(slot_data):
+		# Remove the 3D instance from the hand
+		equipped_item.queue_free()
+		equipped_item = null
+	else:
+		print("Inventory is full! Cannot unequip item.")

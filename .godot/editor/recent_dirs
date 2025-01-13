@@ -1,4 +1,7 @@
+res://main_inventory
 res://scenes/asset-scenes/weapons
+res://main_inventory/item/items
+res://scenes/player
 res://scenes/fsm/enemy
 res://scenes/fsm/enemy/attack/areas
 res://
@@ -9,14 +12,10 @@ res://assets/Character/animation
 res://scenes/fsm
 res://scenes/map
 res://scenes/asset-scenes/pickup
-res://main_inventory
 res://scenes/asset-scenes
 res://main_inventory/inventory
-res://main_inventory/item/items
 res://main_inventory/item
 res://scenes/NPC
-res://scenes/player
 res://addons/proton_scatter/demos/assets
-res://scenes/asset-scenes/houses
 res://scenes
 res://scenes/main-game

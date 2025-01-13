@@ -1,4 +1,6 @@
-CharacterStats
 InventoryData
+ItemDataEquippable
+ItemDataConsumable
+CharacterStats
 ItemData
 AtlasTexture

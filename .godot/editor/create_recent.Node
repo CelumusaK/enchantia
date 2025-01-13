@@ -1,7 +1,10 @@
-CSGBox3D
 Node3D
 MeshInstance3D
 RigidBody3D
+HBoxContainer
+MarginContainer
+PanelContainer
+CSGBox3D
 Sprite3D
 ProgressBar
 SubViewport
@@ -9,6 +12,3 @@ PlayerDamage
 PlayerDeath
 SubViewportContainer
 CanvasLayer
-BoneAttachment3D
-Node
-CollisionShape3D
