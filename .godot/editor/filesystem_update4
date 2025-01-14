@@ -1,0 +1,11 @@
+res://scenes/player/player.tscn
+res://scenes/player/player.gd
+res://scenes/fsm/stats.gd
+res://inventory/inventory_handler.gd
+res://scenes/main-game/main_game.tscn
+res://scenes/asset-scenes/interactable_test_cube.tscn
+res://inventory/inventory_slot.tscn
+res://scenes/player/interactions/player_interaction_handler.gd
+res://scenes/asset-scenes/test_sphere.tscn
+res://scenes/asset-scenes/test_sword.tscn
+res://scenes/asset-scenes/sword.tscn
