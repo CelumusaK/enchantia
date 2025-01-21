@@ -117,7 +117,8 @@ emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 16.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_arqdv"]
-height = 7.92488
+height = 3.39965
+radius = 0.209674
 
 [node name="Sword" type="RigidBody3D" node_paths=PackedStringArray("ItemHighLightMesh")]
 transform = Transform3D(0.347017, -0.937859, 0, 0.937859, 0.347017, 0, 0, 0, 1, 0, 0, 0)
@@ -126,7 +127,7 @@ script = ExtResource("1_6sp0u")
 ItemHighLightMesh = NodePath("Cylinder_001/Outline")
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.187399, 0, 0, 0, 0.187399, 0, 0, 0, 0.187399, 0, 0, 0)
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 mesh = SubResource("ArrayMesh_okryg")
 skeleton = NodePath("")
 
@@ -135,5 +136,5 @@ mesh = SubResource("ArrayMesh_2p24c")
 surface_material_override/0 = SubResource("StandardMaterial3D_07vs6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.81546, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.000877619, -1.01421, 0)
 shape = SubResource("CylinderShape3D_arqdv")

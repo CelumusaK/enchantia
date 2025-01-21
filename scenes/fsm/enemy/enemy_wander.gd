@@ -6,8 +6,6 @@ class_name EnemyWander
 @onready var skin: Node3D = $"../../YBot/Armature"
 @onready var animation_player: AnimationPlayer = $"../../YBot/AnimationPlayer"
 
-@export var player : CharacterBody3D
-
 var move_direction : Vector2
 var wander_time: float
 

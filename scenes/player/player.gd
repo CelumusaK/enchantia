@@ -5,7 +5,6 @@ class_name Player
 @onready var pitch_pivot: Node3D = $TwistPivot/PitchPivot
 @onready var health_bar: ProgressBar = $UI/HealthBar
 @onready var camera_3d: Camera3D = $TwistPivot/PitchPivot/SpringArm3D/Camera3D
-@onready var right: BoneAttachment3D = $YBot/Armature/GeneralSkeleton/BodyAttacks/Right
 
 @export var stats: Resource
 
@@ -28,8 +27,6 @@ func _physics_process(delta: float) -> void:
 	
 	twistinput = 0.0
 	pitchinput = 0.0
-
-	move_and_slide()
 
 	
 func _input(event: InputEvent) -> void:

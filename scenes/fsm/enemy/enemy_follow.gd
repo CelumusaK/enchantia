@@ -6,7 +6,6 @@ class_name EnemyFollow
 @onready var skin: Node3D = $"../../YBot/Armature"
 @onready var animation_player: AnimationPlayer = $"../../YBot/AnimationPlayer"
 
-@export var player : CharacterBody3D
 var dir := Vector3.ZERO
 var last_move_dir := Vector3.ZERO
 var rotation_speed := 10.0

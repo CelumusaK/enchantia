@@ -1,7 +1,6 @@
 extends State
 class_name RunJump
 
-@export var player : CharacterBody3D
 @onready var anim: AnimationTree = $"../../YBot/AnimationTree"
 
 const JUMP_VELOCITY = 4.5

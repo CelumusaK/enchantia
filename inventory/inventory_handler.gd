@@ -5,7 +5,7 @@ class_name InventoryHandler
 
 @export_flags_3d_physics var CollisionMask : int
 
-@export var ItemSlotCount: int = 23
+@export var ItemSlotCount: int = 12
 @export var InventoryGrid: GridContainer
 @export var InventorySlotPrefab: PackedScene = preload("res://inventory/inventory_slot.tscn")
 
@@ -94,7 +94,7 @@ func EquipWeapon(item: ItemData):
 	print("Equip ", item.ItemName)
 	# Instantiate and attach the weapon to the player's hand
 	EquippedItemInstance = item.ItemModelPrefab.instantiate() as Node3D
-	PlayerBody.right.add_child(EquippedItemInstance)
+	PlayerBody.add_child(EquippedItemInstance)
 	if EquippedItemInstance is CollisionObject3D:
 		var equipped_body = EquippedItemInstance as CollisionObject3D
 		equipped_body.set_collision_layer(0)  # Disable all collision layers

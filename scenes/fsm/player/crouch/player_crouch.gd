@@ -6,7 +6,6 @@ class_name PlayerCrouch
 @onready var anim: AnimationTree = $"../../YBot/AnimationTree"
 
 @export var fsm: FSM
-@export var player: CharacterBody3D
 
 
 func Enter():

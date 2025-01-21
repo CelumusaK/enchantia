@@ -1,26 +1,21 @@
 extends State
 class_name PlayerFalling
 
-@export var player : CharacterBody3D
-@onready var anim: AnimationTree = $"../../YBot/AnimationTree"
-@export var fsm: FSM
+var _delta: float
 
 func Enter():
-	print("Enter Falling")
-	anim["parameters/conditions/fall"] = true
+	player.velocity += player.get_gravity() * _delta
 	
 func Exit():
-	print("Exit Falling")
-	anim["parameters/conditions/fall"] = false
-	anim["parameters/Falling/conditions/land"] = false
+	pass
 	
 func Update(delta: float):
-	player.velocity += player.get_gravity() * delta
+	_delta = delta
+	if player.velocity.y == 0:
+		Transitioned.emit(self, "Idle")
 	
 func Physics_Update(delta: float):
-	
-	if player.velocity.y == 0:
-		anim["parameters/Falling/conditions/land"] = true
-		Transitioned.emit(self, "Idle")
+	player.velocity += player.get_gravity() * delta
+	player.move_and_slide()
 		
 		

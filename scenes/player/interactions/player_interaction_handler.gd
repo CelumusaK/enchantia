@@ -40,3 +40,7 @@ func OnObjectExitedArea(body: Node3D):
 		body.LoseFocus()
 		NearbyBodies.remove_at(NearbyBodies.find(body))
 		
+
+
+func _on_pick_up_pressed() -> void:
+	PickupNearestItem()

@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://d07e4pssp3e0d"]
+
+[ext_resource type="Texture2D" uid="uid://clv3kxrxjsbec" path="res://assets/Big/O.png" id="1_exp0u"]
+[ext_resource type="Texture2D" uid="uid://d28h6ugw8r5rr" path="res://assets/Big/O_Pressed.png" id="2_md34s"]
+[ext_resource type="Texture2D" uid="uid://dqhqjjjiedyw1" path="res://assets/Big/S.png" id="3_ve3n0"]
+[ext_resource type="Texture2D" uid="uid://bllrs1ju6kvwd" path="res://assets/Big/S_Pressed.png" id="4_i2lc3"]
+[ext_resource type="Texture2D" uid="uid://ddx35532c15nf" path="res://assets/Big/T.png" id="5_tfdl5"]
+[ext_resource type="Texture2D" uid="uid://l6tl7b752bvd" path="res://assets/Big/T_Pressed.png" id="6_aapq5"]
+[ext_resource type="Texture2D" uid="uid://ddeb3caf0yljt" path="res://assets/Big/X.png" id="7_7palq"]
+[ext_resource type="Texture2D" uid="uid://47wremgqhelo" path="res://assets/Big/X_Pressed.png" id="8_se3ku"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mspqy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Buttons" type="PanelContainer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -427.0
+offset_top = -325.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mspqy")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(282, 105)
+scale = Vector2(5, 5)
+texture_normal = ExtResource("1_exp0u")
+texture_pressed = ExtResource("2_md34s")
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
+position = Vector2(80, 105)
+scale = Vector2(5, 5)
+texture_normal = ExtResource("3_ve3n0")
+texture_pressed = ExtResource("4_i2lc3")
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="."]
+position = Vector2(183, 10)
+scale = Vector2(5, 5)
+texture_normal = ExtResource("5_tfdl5")
+texture_pressed = ExtResource("6_aapq5")
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="."]
+position = Vector2(183, 209)
+scale = Vector2(5, 5)
+texture_normal = ExtResource("7_7palq")
+texture_pressed = ExtResource("8_se3ku")

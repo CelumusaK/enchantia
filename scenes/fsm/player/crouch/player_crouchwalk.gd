@@ -7,7 +7,6 @@ class_name PlayerCrouchWalk
 @onready var camera_3d: Camera3D = $"../../../TwistPivot/PitchPivot/SpringArm3D/Camera3D"
 @onready var skin: Node3D = $"../../../YBot/Armature"
 
-@export var player : CharacterBody3D
 var input_dir:= Vector2.ZERO
 var SPEED = 5.0
 var dir := Vector3.ZERO

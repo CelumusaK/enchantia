@@ -4,7 +4,6 @@ class_name PlayerDamage
 @onready var anim: AnimationTree = $"../../YBot/AnimationTree"
 
 @export var player_stats: Resource
-@export var player: CharacterBody3D
 @export var timer: float = 0.0
 
 func Enter():

@@ -9,7 +9,6 @@ class_name PlayerWalk
 var _delta: float
 @export var timer: float = 0.0
 
-@export var player : CharacterBody3D
 var input_dir:= Vector2.ZERO
 var SPEED = 3.0
 var dir := Vector3.ZERO
