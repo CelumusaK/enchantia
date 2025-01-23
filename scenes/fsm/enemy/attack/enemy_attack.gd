@@ -1,7 +1,6 @@
 extends State
 class_name EnemyAttack
 
-@export var player : CharacterBody3D
 @onready var skin: Node3D = $"../../YBot/Armature"
 @onready var animation_player: AnimationPlayer = $"../../YBot/AnimationPlayer"
 

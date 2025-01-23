@@ -5,7 +5,7 @@ class_name Player
 @onready var pitch_pivot: Node3D = $TwistPivot/PitchPivot
 @onready var health_bar: ProgressBar = $UI/HealthBar
 @onready var camera_3d: Camera3D = $TwistPivot/PitchPivot/SpringArm3D/Camera3D
-@onready var right: BoneAttachment3D = $YBot/Armature/GeneralSkeleton/BodyAttacks/Right
+@onready var right_hand: BoneAttachment3D = $EquippesItems/Arm/RightHand
 
 @export var stats: Resource
 
@@ -15,6 +15,9 @@ var pitchinput = 0.0
 var sensitivity = 0.005
 
 var is_kicked: bool = false
+var is_attacking: bool = false
+var equipped_weapon: String = "Fist"
+var is_blocking: bool = false
 
 func _ready() -> void:
 	health_bar.max_value = stats.max_health
@@ -29,8 +32,6 @@ func _physics_process(delta: float) -> void:
 	twistinput = 0.0
 	pitchinput = 0.0
 
-	move_and_slide()
-
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenDrag:
@@ -38,12 +39,20 @@ func _input(event: InputEvent) -> void:
 		pitchinput -= event.relative.y * sensitivity
 		
 
-func player_attack(body: Node3D):
-	if body.has_method("hurt"):
-		body.hurt()
-		
-func hurt(damage: int):
-	stats.take_damage(damage)
+func hurt(damage: int, source: Node3D, victim: Node3D):
+	stats.take_damage(damage, source, victim)
 	
 func update_health():
 	health_bar.value = stats.health
+	
+func calculate_damage() -> int:
+	if is_blocking:
+		return 0
+	if stats == null:
+		print(stats)
+		return 0
+		
+	return stats.attack_power
+	
+func gain_exp(exp: int):
+	stats.gain_experience(exp)

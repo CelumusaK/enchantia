@@ -5,7 +5,7 @@ class_name InventoryHandler
 
 @export_flags_3d_physics var CollisionMask : int
 
-@export var ItemSlotCount: int = 23
+@export var ItemSlotCount: int = 12
 @export var InventoryGrid: GridContainer
 @export var InventorySlotPrefab: PackedScene = preload("res://inventory/inventory_slot.tscn")
 
@@ -75,12 +75,12 @@ func UnequipItem():
 		# Re-enable collision layers
 		if EquippedItemInstance is CollisionObject3D:
 			var equipped_body = EquippedItemInstance as CollisionObject3D
-			equipped_body.set_collision_layer(3)  # Re-enable collision layer (adjust as needed)
+			equipped_body.set_collision_layer(2)  # Re-enable collision layer (adjust as needed)
 			equipped_body.set_collision_mask(1)  # Re-enable collision mask (adjust as needed)
 			
-	print("Unequip ", InventorySlots[EquippedSlot].SlotData.ItemName)
 	InventorySlots[EquippedSlot].FillSlot(InventorySlots[EquippedSlot].SlotData, false)
 	WeaponEquip = false
+	PlayerBody.equipped_weapon = "Fist"
 	
 	if EquippedItemInstance:
 		EquippedItemInstance.queue_free()  # Removes the item from the scene
@@ -91,14 +91,18 @@ func EquipWeapon(item: ItemData):
 		print(item.ItemName, " Is Equipped")
 		return
 		
-	print("Equip ", item.ItemName)
 	# Instantiate and attach the weapon to the player's hand
 	EquippedItemInstance = item.ItemModelPrefab.instantiate() as Node3D
-	PlayerBody.right.add_child(EquippedItemInstance)
+	EquippedItemInstance.player = PlayerBody
+	PlayerBody.right_hand.add_child(EquippedItemInstance)
+	EquippedItemInstance.freeze = true
 	if EquippedItemInstance is CollisionObject3D:
+		print("will change")
 		var equipped_body = EquippedItemInstance as CollisionObject3D
-		equipped_body.set_collision_layer(0)  # Disable all collision layers
-		equipped_body.set_collision_mask(1)
+		equipped_body.set_collision_layer(0)
+		equipped_body.set_collision_mask(0)
+	PlayerBody.equipped_weapon = item.ItemName
+	EquippedItemInstance.set_owner(PlayerBody.right_hand)
 	
 func ItemDroppedOnSlot(fromSlotID : int, toSlotID : int):
 	if EquippedSlot != -1:

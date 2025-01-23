@@ -12,6 +12,7 @@ class_name CharacterStats
 @export var level: int = 1
 @export var experience: int = 0
 @export var experience_to_next_level: int = 100
+@export var exp_gained: int = 50
 
 # Core Attributes
 @export var strength: int = 10
@@ -65,9 +66,11 @@ func gain_experience(amount: int):
 		experience -= experience_to_next_level
 		level_up()
 
-func take_damage(amount: int):
+func take_damage(amount: int, source: Node3D, victim: Node3D):
 	health -= amount
 	if health <= 0:
+		if source == CharacterBody3D:
+			source.gain_exp(victim.stats.exp_gained)
 		die()
 
 func heal(amount: int):

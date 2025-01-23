@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://cy2bnxx4jasx3"]
+[gd_scene load_steps=7 format=4 uid="uid://cy2bnxx4jasx3"]
 
 [ext_resource type="Script" path="res://inventory/interactable_item.gd" id="1_5np45"]
+[ext_resource type="PackedScene" uid="uid://basi8kvugswbl" path="res://scenes/asset-scenes/hit_boxt.tscn" id="2_nlbto"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_c1siq"]
 
@@ -25,7 +26,7 @@ emission_energy_multiplier = 16.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_j6leo"]
 
 [node name="InteractableTestCube" type="RigidBody3D" node_paths=PackedStringArray("ItemHighLightMesh")]
-collision_layer = 4
+collision_layer = 2
 script = ExtResource("1_5np45")
 ItemHighLightMesh = NodePath("MeshInstance3D/Outline")
 
@@ -39,3 +40,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_t6u17")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_j6leo")
+
+[node name="HitBoxt" parent="." instance=ExtResource("2_nlbto")]

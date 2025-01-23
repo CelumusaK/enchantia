@@ -3,6 +3,12 @@ class_name State
 
 signal Transitioned
 
+var player: CharacterBody3D
+var input_manager: InputManager
+var player_direction: PlayerDirection
+var next_state: String
+var animator: AnimationHandler
+
 func Enter():
 	pass
 	
