@@ -26,10 +26,6 @@ func update_animation(state: String, delta: float):
 	
 	
 func handle_attack_animation(weapon_type: String, combo_step: int, delta: float):
-	# Debugging version: Prints the animation state instead of modifying the animation tree
-	var animation_name = "%s_%d" % [weapon_type, combo_step]
-	print("Debug: Attempting to play attack animation: %s" % animation_name)
-	
 	match weapon_type:
 		"Fist":
 			match combo_step:
@@ -44,6 +40,11 @@ func handle_attack_animation(weapon_type: String, combo_step: int, delta: float)
 				2:
 					animation_tree["parameters/PunchState/blend_amount"] = 1
 					animation_tree.set("parameters/Punch/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+					
+		"Sword":
+			match  combo_step:
+				0:
+					animation_tree.set("parameters/Sword/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	
 	
 	

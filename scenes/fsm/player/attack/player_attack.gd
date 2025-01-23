@@ -4,7 +4,7 @@ class_name PlayerAttack
 @export var combo_timer: float = 1.0  # Time allowed to chain combos
 var current_combo_step: int = 0
 var combo_time_remaining: float = 0.0
-var weapon_type: String = "Fist"  # Default weapon type
+var weapon_type: String  # Default weapon type
 var weapon_combo_patterns: Dictionary = {
 	"Fist": ["Punch1", "Punch2", "Punch3"],
 	"Sword": ["Slash1", "Slash2", "Slash3"],
@@ -13,14 +13,15 @@ var weapon_combo_patterns: Dictionary = {
 var attack_in_progress: bool = false
 
 func Enter():
-	print("Entered Attack State with weapon: %s" % weapon_type)
+	player.is_attacking = true
+	weapon_type = player.equipped_weapon
 	current_combo_step = 0
 	combo_time_remaining = combo_timer
 	attack_in_progress = false
 	execute_attack()
 
 func Exit():
-	print("Exiting Attack State")
+	player.is_attacking = false
 	combo_time_remaining = 0.0
 	current_combo_step = 0
 	attack_in_progress = false
@@ -43,7 +44,6 @@ func execute_attack():
 	if weapon_type in weapon_combo_patterns:
 		var attack_sequence = weapon_combo_patterns[weapon_type]
 		if current_combo_step < attack_sequence.size():
-			print("Executing %s" % attack_sequence[current_combo_step])
 			animator.handle_attack_animation(weapon_type, current_combo_step, 0.5)
 			current_combo_step += 1
 			combo_time_remaining = combo_timer  # Reset combo timer for the next attack
@@ -51,12 +51,10 @@ func execute_attack():
 			await(get_tree().create_timer(0.5))
 			attack_in_progress = false
 		else:
-			print("Last combo move executed for %s" % weapon_type)
 			reset_combo()  # Reset combo after completing the sequence
 	else:
 		print("No attack pattern defined for weapon: %s" % weapon_type)
 
 func reset_combo():
-	print("Combo reset")
 	current_combo_step = 0
 	attack_in_progress = false

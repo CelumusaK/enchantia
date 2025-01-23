@@ -4,7 +4,7 @@ class_name EnemyWander
 @export var enemy : CharacterBody3D
 @export var move_speed:= 3.0
 @onready var skin: Node3D = $"../../YBot/Armature"
-@onready var animation_player: AnimationPlayer = $"../../YBot/AnimationPlayer"
+@onready var animation_handler: NPCAnimationHandler = $"../../AnimationHandler"
 
 var move_direction : Vector2
 var wander_time: float
@@ -19,7 +19,7 @@ func randomize_wander():
 	wander_time = randf_range(1, 3)
 	
 func Enter():
-	animation_player.play("Walking")
+	animation_handler.update_animation("Walking")
 	randomize_wander()
 	
 func  Update(delta: float):
