@@ -2,16 +2,16 @@ extends State
 class_name EnemyFollow
 
 @export var enemy : CharacterBody3D
-@export var move_speed:= 3.0
+@export var move_speed:= 6.0
 @onready var skin: Node3D = $"../../YBot/Armature"
-@onready var animation_player: AnimationPlayer = $"../../YBot/AnimationPlayer"
+@onready var animation_handler: NPCAnimationHandler = $"../../AnimationHandler"
 
 var dir := Vector3.ZERO
 var last_move_dir := Vector3.ZERO
-var rotation_speed := 10.0
+var rotation_speed := 15.0
 
 func Enter():
-	animation_player.play("Walking")
+	animation_handler.update_animation("Running")
 	
 func Exit():
 	pass
@@ -30,13 +30,14 @@ func Physics_Update(delta: float):
 	var direction = player.global_position - enemy.global_position
 	dir = direction
 
-	if direction.length() < 25 and player.stats.health != 0:
+	if direction.length() < 10:
 		enemy.velocity = direction.normalized() * move_speed
-		if direction.length() < 1.5 and player.stats.health != 0:
+		if direction.length() < 2:
 			enemy.velocity = Vector3.ZERO
 			Transitioned.emit(self, "Attack")
 	else:
 		enemy.velocity = Vector3.ZERO
+		Transitioned.emit(self, "Idle")
 		
 	if direction.length() > 25:
 		Transitioned.emit(self, "Wander")

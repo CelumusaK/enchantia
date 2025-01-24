@@ -9,6 +9,7 @@ extends Area3D
 
 func _on_body_entered(body: Node3D) -> void:
 	print(body)
+	outline.show()
 	if body and body.global_position and npc:
 		#var body_position = body.global_transform.origin
 		#var direction = (npc.global_transform.origin - body_position).normalized()
@@ -22,8 +23,13 @@ func _on_body_entered(body: Node3D) -> void:
 		# Scale the force by the strength and optionally body velocity
 		force_applied = direction * force_strength
 		
-		if body.linear_velocity:
+		if body == RigidBody3D:
 			var body_velocity = body.linear_velocity
+			force_applied += body_velocity * 0.01
+			outline.show()
+			
+		if body == CharacterBody3D:
+			var body_velocity = body.velocity
 			force_applied += body_velocity * 0.01
 			outline.show()
 

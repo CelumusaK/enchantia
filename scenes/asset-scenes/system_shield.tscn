@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckjlas555qe1r"]
+
+[ext_resource type="Script" path="res://scenes/NPC/system_shield.gd" id="1_aflgt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_arg0q"]
+radius = 0.638715
+height = 2.37808
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4cskn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n13g8"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(1, 0.16, 0.16, 0.54902)
+
+[node name="SystemShield" type="Area3D"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_aflgt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999841, 0.0178363, 0, -0.0178363, 0.999841, 0, 0.983996, 0)
+shape = SubResource("CapsuleShape3D_arg0q")
+
+[node name="Outline" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.01931, 0, 0, 0, 1.2, 0, 0.889873, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_4cskn")
+surface_material_override/0 = SubResource("StandardMaterial3D_n13g8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -119,15 +119,15 @@ emission_energy_multiplier = 16.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ufxgj"]
 radius = 0.183813
-height = 2.08254
+height = 2.8045
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6qocq"]
-radius = 0.0389591
-height = 1.01447
+radius = 0.0616026
+height = 1.35194
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_84s2t"]
-radius = 0.0885869
-height = 0.996097
+radius = 0.0661757
+height = 1.31771
 
 [node name="Sword" type="RigidBody3D" node_paths=PackedStringArray("ItemHighLightMesh")]
 transform = Transform3D(0.347017, -0.937859, 0, 0.937859, 0.347017, 0, 0, 0, 1, 0, 0, 0)
@@ -137,7 +137,7 @@ script = ExtResource("1_6sp0u")
 ItemHighLightMesh = NodePath("Cylinder_001/Outline")
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0.0386844)
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0, 0.0386844)
 mesh = SubResource("ArrayMesh_okryg")
 skeleton = NodePath("")
 
@@ -147,7 +147,8 @@ mesh = SubResource("ArrayMesh_2p24c")
 surface_material_override/0 = SubResource("StandardMaterial3D_07vs6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.00551651, -0.618013, 0.0386844)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.00191209, -0.824448, 0.0386844)
+visible = false
 shape = SubResource("CapsuleShape3D_ufxgj")
 
 [node name="HitBoxt" type="Area3D" parent="."]
@@ -157,16 +158,15 @@ collision_mask = 4
 script = ExtResource("2_cplxe")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBoxt"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00624189, -0.631517, 0.0330496)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0114354, -0.83057, 0.0330496)
 shape = SubResource("CapsuleShape3D_6qocq")
 
 [node name="Detection" type="RigidBody3D" parent="."]
-visible = false
 collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Detection"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0134234, -0.643286, 0.0374158)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00375438, -0.85689, 0.0374158)
 shape = SubResource("CapsuleShape3D_84s2t")
 
 [connection signal="body_entered" from="HitBoxt" to="HitBoxt" method="_on_body_entered"]

@@ -1,6 +1,8 @@
 extends CharacterBody3D
 class_name Ememy
 
+@onready var skin: Node3D = $YBot/Armature
+
 @export var health_bar: ProgressBar
 
 @export var stats: Resource

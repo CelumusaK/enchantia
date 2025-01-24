@@ -3,9 +3,9 @@ class_name Player
 
 @onready var twist_pivot: Node3D = $TwistPivot
 @onready var pitch_pivot: Node3D = $TwistPivot/PitchPivot
-@onready var health_bar: ProgressBar = $UI/HealthBar
 @onready var camera_3d: Camera3D = $TwistPivot/PitchPivot/SpringArm3D/Camera3D
 @onready var right_hand: BoneAttachment3D = $EquippesItems/Arm/RightHand
+@onready var health_bar: ProgressBar = $UI/HealthBar
 
 @export var stats: Resource
 
@@ -41,6 +41,7 @@ func _input(event: InputEvent) -> void:
 
 func hurt(damage: int, source: Node3D, victim: Node3D):
 	stats.take_damage(damage, source, victim)
+	update_health()
 	
 func update_health():
 	health_bar.value = stats.health

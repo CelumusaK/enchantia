@@ -8,6 +8,7 @@ class_name EnemyWander
 
 var move_direction : Vector2
 var wander_time: float
+var timer: float = 0.0
 
 var dir := Vector3.ZERO
 var last_move_dir := Vector3.ZERO
@@ -19,14 +20,21 @@ func randomize_wander():
 	wander_time = randf_range(1, 3)
 	
 func Enter():
+	timer = randf_range(5, 15)
 	animation_handler.update_animation("Walking")
 	randomize_wander()
 	
 func  Update(delta: float):
+	if timer > 0:
+		timer -= delta
+		
 	if wander_time > 0:
 		wander_time -= delta
 	else:
 		randomize_wander()
+		
+	if timer <= 0:
+		Transitioned.emit(self, "Idle")
 		
 	if dir.length() > 0.2:
 		last_move_dir = dir
@@ -40,5 +48,5 @@ func  Physics_Update(delta: float):
 	enemy.velocity.x = move_direction.x * move_speed
 	enemy.velocity.z = move_direction.y * move_speed
 
-	#if direction.length() < 25 and player.stats.health != 0:
-		#Transitioned.emit(self, "follow")
+	if direction.length() < 10 and player.stats.health > 0:
+		Transitioned.emit(self, "follow")

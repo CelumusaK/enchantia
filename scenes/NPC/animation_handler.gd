@@ -20,3 +20,10 @@ func update_animation(state: String):
 		
 		"Sprint":
 			enemy_anim.set("parameters/Locomotion/transition_request", "Sprint")
+			
+		"Punch":
+			enemy_anim["parameters/AttackState/blend_amount"] = -1
+			enemy_anim.set("parameters/Attack/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+			
+		"Death":
+			enemy_anim["parameters/Death/blend_amount"] = 1

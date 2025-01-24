@@ -3,24 +3,35 @@ class_name EnemyIdle
 
 @export var enemy : CharacterBody3D
 @export var move_speed:= 3.0
-@onready var animation_player: AnimationPlayer = $"../../YBot/AnimationPlayer"
+@onready var animation_handler: NPCAnimationHandler = $"../../AnimationHandler"
+@export var enemy_stats: Resource
 
 var move_direction : Vector2
 var wander_time: float
-
-func randomize_wander():
-	wander_time = randf_range(1, 3)
+var timer: float = 0.0
 	
 func Enter():
-	animation_player.play("Idle")
+	timer = randf_range(5, 15)
+	animation_handler.update_animation("Idle")
+	enemy.velocity = Vector3.ZERO
+	
+func Exit():
+	timer = 0.0
 	
 func  Update(delta: float):
-	pass
-
-func  Physics_Update(delta: float):
-	if player.stats.health == 0:
+	if timer > 0:
+		timer -= delta
+		
+	if timer <= 0:
 		Transitioned.emit(self, "Wander")
 		
-	#var direction = player.global_position - enemy.global_position
-	#if direction.length() > 2 and player.stats.health != 0:
-		#Transitioned.emit(self, "Follow")
+	if enemy_stats.health <= 0:
+		Transitioned.emit(self, "Death")
+
+func  Physics_Update(delta: float):
+	#if player.stats.health == 0:
+		#Transitioned.emit(self, "Wander")
+		
+	var direction = player.global_position - enemy.global_position
+	if direction.length() <= 10:
+		Transitioned.emit(self, "Follow")

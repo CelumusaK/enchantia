@@ -97,7 +97,6 @@ func EquipWeapon(item: ItemData):
 	PlayerBody.right_hand.add_child(EquippedItemInstance)
 	EquippedItemInstance.freeze = true
 	if EquippedItemInstance is CollisionObject3D:
-		print("will change")
 		var equipped_body = EquippedItemInstance as CollisionObject3D
 		equipped_body.set_collision_layer(0)
 		equipped_body.set_collision_mask(0)

@@ -1,6 +1,7 @@
-res://assets/Character
-res://assets/Character/animation
 res://scenes/asset-scenes
+res://scenes/asset-scenes/weapons
+res://assets/Character/animation
+res://assets/Character
 res://scenes/fsm
 res://scenes/hitbox
 res://scenes/player/state_machine
@@ -9,11 +10,8 @@ res://scenes/player
 res://assets/Icons Pack
 res://scenes/main-game
 res://inventory
-res://scenes/asset-scenes/weapons
 res://scenes/fsm/enemy
-res://scenes/fsm/enemy/attack/areas
 res://
-res://scenes/fsm/player/attack/areas
 res://scenes/fsm/player/attack
 res://scenes/NPC
 res://addons/proton_scatter/demos/assets
