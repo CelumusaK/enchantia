@@ -11,7 +11,7 @@ var wander_time: float
 var timer: float = 0.0
 	
 func Enter():
-	timer = randf_range(5, 15)
+	timer = randf_range(5, 10)
 	animation_handler.update_animation("Idle")
 	enemy.velocity = Vector3.ZERO
 	
@@ -31,7 +31,8 @@ func  Update(delta: float):
 func  Physics_Update(delta: float):
 	#if player.stats.health == 0:
 		#Transitioned.emit(self, "Wander")
-		
-	var direction = player.global_position - enemy.global_position
-	if direction.length() <= 10:
-		Transitioned.emit(self, "Follow")
+	#if player:
+		#var direction = player.global_position - enemy.global_position
+		#if direction.length() <= 10:
+			#Transitioned.emit(self, "Follow")
+	pass

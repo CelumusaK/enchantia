@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://f2vltvslqkvg"]
+
+[ext_resource type="PackedScene" uid="uid://cy2bnxx4jasx3" path="res://asset-scenes/interactable_test_cube.tscn" id="1_2eryr"]
+[ext_resource type="PackedScene" uid="uid://crx8qk1awcqn7" path="res://asset-scenes/test_sphere.tscn" id="2_yqejs"]
+[ext_resource type="PackedScene" uid="uid://5k3nbe6wwu73" path="res://asset-scenes/sword.tscn" id="3_ohs6a"]
+
+[node name="Interactables" type="Node"]
+
+[node name="InteractableTestCube3" parent="." instance=ExtResource("1_2eryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12219, 13.2079, 0)
+
+[node name="InteractableTestCube4" parent="." instance=ExtResource("1_2eryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17957, 13.1465, 0)
+
+[node name="InteractableTestCube5" parent="." instance=ExtResource("1_2eryr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.6591, 0)
+
+[node name="TestSphere6" parent="." instance=ExtResource("2_yqejs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.67193, 3, 0)
+
+[node name="TestSphere7" parent="." instance=ExtResource("2_yqejs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23073, 4.98123, 0)
+
+[node name="TestSphere8" parent="." instance=ExtResource("2_yqejs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25841, 6.61858, 0)
+
+[node name="Sword" parent="." instance=ExtResource("3_ohs6a")]
+transform = Transform3D(1, 0, 0, 0, 0.0194242, -0.999811, 0, 0.999811, 0.0194242, 0, 8.20364, 19.5544)

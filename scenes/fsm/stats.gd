@@ -21,6 +21,7 @@ class_name CharacterStats
 @export var constitution: int = 10
 @export var charisma: int = 10
 @export var wisdom: int = 10
+@export var points: int = 0.0
 
 # Secondary Stats (Derived from Core Attributes)
 @export var health: int = 100
@@ -45,7 +46,7 @@ class_name CharacterStats
 # Methods
 func level_up():
 	level += 1
-	experience_to_next_level = experience_to_next_level * 2 # Increase XP threshold by 20%
+	experience_to_next_level = experience_to_next_level * 2
 	strength += 2
 	dexterity += 2
 	intelligence += 2
@@ -58,18 +59,20 @@ func level_up():
 	health = max_health
 	mana = max_mana
 	stamina = max_stamina
+	points = 5
 	print("Level Up! You are now level ", level)
 
 func gain_experience(amount: int):
 	experience += amount
-	while experience >= experience_to_next_level:
+	if experience >= experience_to_next_level:
 		experience -= experience_to_next_level
 		level_up()
 
 func take_damage(amount: int, source: Node3D, victim: Node3D):
 	health -= amount
 	if health <= 0:
-		if source == CharacterBody3D:
+		while source == CharacterBody3D:
+			print(source)
 			source.gain_exp(victim.stats.exp_gained)
 		die()
 

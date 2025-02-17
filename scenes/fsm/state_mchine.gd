@@ -45,8 +45,6 @@ func _process(delta: float) -> void:
 	
 	if current_state:
 		current_state.Update(delta)
-		if animator:
-			animator.update_animation(state_to_follow, delta)
 
 func _physics_process(delta: float) -> void:
 	if current_state:

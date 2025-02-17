@@ -1,0 +1,221 @@
+[gd_scene load_steps=30 format=3 uid="uid://cu22snqcx57kj"]
+
+[ext_resource type="Shader" uid="uid://hl41yvsdo1sm" path="res://asset-scenes/effects/level_up_aura.tres" id="1_ktrua"]
+[ext_resource type="ArrayMesh" uid="uid://b73w085aaj0w5" path="res://assets/effects/Cylinder.obj" id="1_xcba7"]
+[ext_resource type="Texture2D" uid="uid://xde5gc0cfd2s" path="res://assets/effects/Super Perlin 11 - 512x512.png" id="2_r7s4b"]
+[ext_resource type="Texture2D" uid="uid://cgys8ubogctah" path="res://assets/effects/Grainy 13 - 128x128.png" id="4_qtlgc"]
+[ext_resource type="Texture2D" uid="uid://b2ukeiepiyk6c" path="res://assets/effects/levelup.png" id="5_ib8nq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ktrua"]
+render_priority = 0
+shader = ExtResource("1_ktrua")
+shader_parameter/Texture2DParameter = ExtResource("2_r7s4b")
+
+[sub_resource type="Curve" id="Curve_0ggxb"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.235075, 0.984436), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_vn7a0"]
+curve = SubResource("Curve_0ggxb")
+
+[sub_resource type="Curve" id="Curve_xtr48"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_o6rin"]
+_data = [Vector2(0, 0.0350195), 0.0, 0.0, 0, 0, Vector2(0.735075, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_7qrp4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_xhhhq"]
+curve_x = SubResource("Curve_xtr48")
+curve_y = SubResource("Curve_o6rin")
+curve_z = SubResource("Curve_7qrp4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wjqx5"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveXYZTexture_xhhhq")
+color = Color(0.2, 0.4, 0.9, 1)
+alpha_curve = SubResource("CurveTexture_vn7a0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ybv34"]
+render_priority = 0
+shader = ExtResource("1_ktrua")
+shader_parameter/Texture2DParameter = ExtResource("4_qtlgc")
+
+[sub_resource type="Curve" id="Curve_rr5sa"]
+_data = [Vector2(0.0186567, 0.0505837), 0.0, 0.0, 0, 0, Vector2(0.55597, 0.968872), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_my3li"]
+_data = [Vector2(0, 0.0350195), 0.0, 0.0, 0, 0, Vector2(0.735075, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_i64cd"]
+_data = [Vector2(0.00373134, 0), 0.0, 0.0, 0, 0, Vector2(0.787313, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_fb2k3"]
+curve_x = SubResource("Curve_rr5sa")
+curve_y = SubResource("Curve_my3li")
+curve_z = SubResource("Curve_i64cd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k18n2"]
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveXYZTexture_fb2k3")
+color = Color(0.2, 0.4, 0.9, 1)
+alpha_curve = SubResource("CurveTexture_vn7a0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7s4b"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("5_ib8nq")
+
+[sub_resource type="Gradient" id="Gradient_r7s4b"]
+offsets = PackedFloat32Array(0, 0.112676, 0.901408, 1)
+colors = PackedColorArray(0, 0, 0, 0.12, 1, 1, 1, 1, 0.882188, 0.882188, 0.882188, 0.896325, 0.237676, 0.237676, 0.237676, 0.329155)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qtlgc"]
+gradient = SubResource("Gradient_r7s4b")
+
+[sub_resource type="Curve" id="Curve_r7s4b"]
+_data = [Vector2(0.0261194, 0.0817121), 0.0, 0.0, 0, 0, Vector2(0.42126, 1), 0.296499, 0.296499, 0, 0, Vector2(0.61811, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_qtlgc"]
+curve = SubResource("Curve_r7s4b")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qtlgc"]
+gravity = Vector3(0, 1, 0)
+scale_min = 1.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_qtlgc")
+color = Color(0.3, 0.4, 0.9, 1)
+color_ramp = SubResource("GradientTexture1D_qtlgc")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ib8nq"]
+
+[sub_resource type="Animation" id="Animation_qtlgc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Aura:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Aura2:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LevelUp:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_r7s4b"]
+resource_name = "level_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Aura:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Aura2:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LevelUp:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ib8nq"]
+_data = {
+&"RESET": SubResource("Animation_qtlgc"),
+&"level_up": SubResource("Animation_r7s4b")
+}
+
+[node name="LevelUpAnim" type="Node3D"]
+
+[node name="Aura" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_ktrua")
+cast_shadow = 0
+emitting = false
+amount = 1
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_wjqx5")
+draw_pass_1 = ExtResource("1_xcba7")
+
+[node name="Aura2" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_ybv34")
+cast_shadow = 0
+emitting = false
+amount = 1
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_k18n2")
+draw_pass_1 = ExtResource("1_xcba7")
+
+[node name="LevelUp" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9331, 0)
+material_override = SubResource("StandardMaterial3D_r7s4b")
+emitting = false
+amount = 1
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_qtlgc")
+draw_pass_1 = SubResource("QuadMesh_ib8nq")
+
+[node name="LevelUp2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ib8nq")
+}

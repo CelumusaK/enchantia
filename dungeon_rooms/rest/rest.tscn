@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://nv3tr120me8f"]
+
+[ext_resource type="Script" uid="uid://cvn8r6ejjpfmi" path="res://addons/SimpleDungeons/DungeonRoom3D.gd" id="1_5wy6q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odp21"]
+albedo_color = Color(0.258824, 0.647059, 0.960784, 1)
+
+[node name="Rest" type="Node3D"]
+script = ExtResource("1_5wy6q")
+min_count = 1
+max_count = 4
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(10, 10, 10)
+material = SubResource("StandardMaterial3D_odp21")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+operation = 2
+size = Vector3(9.8, 9.8, 9.8)
+material = SubResource("StandardMaterial3D_odp21")
+
+[node name="DOOR_RIGHT" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.01058)
+operation = 2
+size = Vector3(5, 8, 2)
+material = SubResource("StandardMaterial3D_odp21")
+
+[node name="DOOR_BACK" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.72453)
+operation = 2
+size = Vector3(5, 8, 2)
+material = SubResource("StandardMaterial3D_odp21")

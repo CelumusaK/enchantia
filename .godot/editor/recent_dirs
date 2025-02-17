@@ -1,12 +1,11 @@
-res://scenes/asset-scenes
-res://scenes/asset-scenes/weapons
-res://assets/Character/animation
-res://assets/Character
+res://scenes/player
+res://dungeon_rooms
 res://scenes/fsm
-res://scenes/hitbox
+res://assets/Character/animation
+res://scenes/minimap
+res://assets/Character
 res://scenes/player/state_machine
 res://scenes/fsm/player
-res://scenes/player
 res://assets/Icons Pack
 res://scenes/main-game
 res://inventory

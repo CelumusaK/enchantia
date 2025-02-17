@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://byq5uxc3tanqt"]
+
+[ext_resource type="Script" uid="uid://cvn8r6ejjpfmi" path="res://addons/SimpleDungeons/DungeonRoom3D.gd" id="1_4yv33"]
+
+[node name="Room" type="Node3D"]
+script = ExtResource("1_4yv33")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(10, 10, 10)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+operation = 2
+size = Vector3(9.8, 9.8, 9.8)
+
+[node name="DOOR_BACK" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.07252, 4.89732)
+operation = 2
+size = Vector3(5, 7.34961, 1.1499)
+
+[node name="DOOR_BACK2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.03002, -1.07252, 0.131416)
+operation = 2
+size = Vector3(5, 7.34961, 1.1499)

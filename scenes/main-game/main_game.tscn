@@ -1,268 +1,275 @@
-[gd_scene load_steps=18 format=3 uid="uid://caun3oc3wgcil"]
+[gd_scene load_steps=16 format=3 uid="uid://caun3oc3wgcil"]
 
-[ext_resource type="PackedScene" uid="uid://b6gle7nwge0v" path="res://scenes/player/player.tscn" id="2_42von"]
-[ext_resource type="PackedScene" uid="uid://cy2bnxx4jasx3" path="res://scenes/asset-scenes/interactable_test_cube.tscn" id="6_nmnmc"]
-[ext_resource type="PackedScene" uid="uid://crx8qk1awcqn7" path="res://scenes/asset-scenes/test_sphere.tscn" id="7_a3rol"]
-[ext_resource type="PackedScene" uid="uid://5k3nbe6wwu73" path="res://scenes/asset-scenes/sword.tscn" id="8_ih1h8"]
-[ext_resource type="PackedScene" uid="uid://dfp3qjta7a1ah" path="res://scenes/NPC/npc.tscn" id="8_m5cvb"]
-[ext_resource type="Texture2D" uid="uid://c5cyb5wn3lj5l" path="res://assets/textures/texture_07.png" id="8_r5yp6"]
-[ext_resource type="Texture2D" uid="uid://buolqkg0igmi1" path="res://assets/textures/texture_06.png" id="8_sd6ss"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w5a72"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_2uiwk"]
-sky_material = SubResource("ProceduralSkyMaterial_w5a72")
-
-[sub_resource type="Environment" id="Environment_drfag"]
-background_mode = 2
-sky = SubResource("Sky_2uiwk")
-tonemap_mode = 2
-glow_enabled = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_muoal"]
-albedo_texture = ExtResource("8_sd6ss")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ilcfm"]
-albedo_texture = ExtResource("8_r5yp6")
-uv1_triplanar = true
-uv1_world_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wkfl"]
-albedo_texture = ExtResource("8_sd6ss")
-uv1_triplanar = true
-uv1_world_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wqauh"]
-albedo_texture = ExtResource("8_sd6ss")
-uv1_triplanar = true
-uv1_world_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rfsxo"]
-albedo_texture = ExtResource("8_sd6ss")
-uv1_triplanar = true
-uv1_world_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pd0dg"]
-albedo_texture = ExtResource("8_sd6ss")
-uv1_triplanar = true
-uv1_world_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yp1fk"]
-albedo_texture = ExtResource("8_sd6ss")
-uv1_triplanar = true
-uv1_world_triplanar = true
+[ext_resource type="Script" uid="uid://cegxvycnv7iuc" path="res://addons/SimpleDungeons/DungeonGenerator3D.gd" id="1_sethw"]
+[ext_resource type="PackedScene" uid="uid://bva1qo5vw7oel" path="res://dungeon_rooms/elite_monster/elite_monster.tscn" id="2_cjowe"]
+[ext_resource type="PackedScene" uid="uid://bvvralhnp0rpq" path="res://dungeon_rooms/event/event.tscn" id="3_cg87y"]
+[ext_resource type="PackedScene" uid="uid://chgkkcqnco0tw" path="res://dungeon_rooms/hidden/hidden.tscn" id="4_pn7jq"]
+[ext_resource type="PackedScene" uid="uid://niau1umepbwj" path="res://dungeon_rooms/monsters/monsters.tscn" id="5_62po8"]
+[ext_resource type="PackedScene" uid="uid://c5vor1akukbst" path="res://dungeon_rooms/stairs.tscn" id="6_ccyjp"]
+[ext_resource type="PackedScene" uid="uid://cs4d7jcvp2y5o" path="res://dungeon_rooms/portal/portal.tscn" id="6_k7h2l"]
+[ext_resource type="PackedScene" uid="uid://ch47sqvf0id77" path="res://dungeon_rooms/puzzle/puzzle.tscn" id="7_1c7sf"]
+[ext_resource type="PackedScene" uid="uid://x81rlx61b7ix" path="res://dungeon_rooms/corridor/corridor.tscn" id="7_pb5qr"]
+[ext_resource type="PackedScene" uid="uid://nv3tr120me8f" path="res://dungeon_rooms/rest/rest.tscn" id="8_fxml8"]
+[ext_resource type="PackedScene" uid="uid://cto3qidd77das" path="res://dungeon_rooms/shop/shop.tscn" id="9_ngax5"]
+[ext_resource type="PackedScene" uid="uid://bin32iglesr20" path="res://dungeon_rooms/trap/trap.tscn" id="10_im4w8"]
+[ext_resource type="PackedScene" uid="uid://bus64v4nw28fk" path="res://dungeon_rooms/treasure/treasure.tscn" id="11_3jd1b"]
+[ext_resource type="PackedScene" uid="uid://dt5hcrm4x4783" path="res://dungeon_rooms/entrance_room.tscn" id="14_k271r"]
+[ext_resource type="PackedScene" uid="uid://cx20bktja6eld" path="res://dungeon_rooms/exit_room.tscn" id="15_xm5iu"]
 
 [node name="MainGame" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0245078, -0.0681772)
 
 [node name="Env" type="Node3D" parent="."]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Env"]
-transform = Transform3D(-0.847076, 0.460268, -0.265736, 2.78059e-08, 0.5, 0.866025, 0.531472, 0.733589, -0.423538, 0, 9.73131, 0)
-shadow_enabled = true
+[node name="DungeonGenerator3D" type="Node3D" parent="."]
+script = ExtResource("1_sethw")
+room_scenes = Array[PackedScene]([ExtResource("2_cjowe"), ExtResource("3_cg87y"), ExtResource("4_pn7jq"), ExtResource("5_62po8"), ExtResource("6_k7h2l"), ExtResource("7_1c7sf"), ExtResource("8_fxml8"), ExtResource("9_ngax5"), ExtResource("10_im4w8"), ExtResource("11_3jd1b"), ExtResource("6_ccyjp")])
+corridor_room_scene = ExtResource("7_pb5qr")
+dungeon_size = Vector3i(10, 5, 5)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Env"]
-environment = SubResource("Environment_drfag")
+[node name="Entrance_Room" parent="DungeonGenerator3D" instance=ExtResource("14_k271r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, -20, -20)
 
-[node name="Player" parent="." instance=ExtResource("2_42von")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84659, 1.22945, 6.17622)
+[node name="ExitRoom" parent="DungeonGenerator3D" instance=ExtResource("15_xm5iu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 20, 20)
 
-[node name="RightHand" parent="Player/EquippesItems/Arm" index="0"]
-transform = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, 0.981005, 2.68954, 6.04633)
+[node name="RoomsContainer" type="Node3D" parent="DungeonGenerator3D"]
 
-[node name="GeneralSkeleton" parent="Player/YBot/Armature" index="0"]
-bones/0/position = Vector3(-6.75701e-08, 0.997919, 4.84474e-07)
-bones/0/rotation = Quaternion(0, 0, 0, 1)
-bones/1/rotation = Quaternion(0, 0, 0, 1)
-bones/2/rotation = Quaternion(0, 0, 0, 1)
-bones/3/rotation = Quaternion(0, 0, 0, 1)
-bones/4/rotation = Quaternion(0, 0, 0, 1)
-bones/5/rotation = Quaternion(0, 0, 0, 1)
-bones/7/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
-bones/8/rotation = Quaternion(0, 1, 0, 0)
-bones/9/rotation = Quaternion(0, -0.707107, 0, 0.707107)
-bones/10/rotation = Quaternion(0, 0.707107, 0, 0.707107)
-bones/11/rotation = Quaternion(0, 0, 0, 1)
-bones/12/rotation = Quaternion(-0.214187, 0.673887, 0.214187, 0.673887)
-bones/13/rotation = Quaternion(-1.49011e-08, 0, 0, 1)
-bones/14/scale = Vector3(1, 1, 1)
-bones/15/rotation = Quaternion(0, 0, 0, 1)
-bones/16/rotation = Quaternion(0, 0, 0, 1)
-bones/17/rotation = Quaternion(0, 0, 0, 1)
-bones/19/rotation = Quaternion(0, 0, 0, 1)
-bones/20/rotation = Quaternion(0, 0, 0, 1)
-bones/21/rotation = Quaternion(0, 0, 0, 1)
-bones/23/rotation = Quaternion(0, 0, 0, 1)
-bones/24/rotation = Quaternion(0, 0, 0, 1)
-bones/25/rotation = Quaternion(0, 0, 0, 1)
-bones/27/rotation = Quaternion(0, 0, 0, 1)
-bones/28/rotation = Quaternion(0, 0, 0, 1)
-bones/29/rotation = Quaternion(0, 0, 0, 1)
-bones/31/rotation = Quaternion(0.5, -0.5, -0.5, -0.5)
-bones/32/rotation = Quaternion(0, 1, 0, 0)
-bones/33/rotation = Quaternion(0, 0.707107, 0, 0.707107)
-bones/34/rotation = Quaternion(0, -0.707107, 0, 0.707107)
-bones/35/rotation = Quaternion(0, 0, 0, 1)
-bones/36/rotation = Quaternion(-0.214187, -0.673887, -0.214187, 0.673887)
-bones/37/rotation = Quaternion(-1.49011e-08, 0, 0, 1)
-bones/38/scale = Vector3(1, 1, 1)
-bones/39/rotation = Quaternion(0, 0, 0, 1)
-bones/40/rotation = Quaternion(0, 0, 0, 1)
-bones/41/rotation = Quaternion(0, 0, 0, 1)
-bones/43/rotation = Quaternion(0, 0, 0, 1)
-bones/44/rotation = Quaternion(0, 0, 0, 1)
-bones/45/rotation = Quaternion(0, 0, 0, 1)
-bones/47/rotation = Quaternion(0, 0, 0, 1)
-bones/48/rotation = Quaternion(0, 0, 0, 1)
-bones/49/rotation = Quaternion(0, 0, 0, 1)
-bones/51/rotation = Quaternion(0, 0, 0, 1)
-bones/52/rotation = Quaternion(0, 0, 0, 1)
-bones/53/rotation = Quaternion(0, 0, 0, 1)
-bones/55/rotation = Quaternion(0, 0, 1, 0)
-bones/56/rotation = Quaternion(0, 1, 0, 0)
-bones/57/rotation = Quaternion(0, 0.707107, -0.707107, 0)
-bones/58/rotation = Quaternion(0, 1, 0, 0)
-bones/60/rotation = Quaternion(0, 0, 1, 0)
-bones/61/rotation = Quaternion(0, 1, 0, 0)
-bones/62/rotation = Quaternion(0, 0.707107, -0.707107, 0)
-bones/63/rotation = Quaternion(0, 1, 0, 0)
+[node name="Puzzle_0" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_1c7sf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 10, -20)
 
-[node name="AnimationTree" parent="Player/YBot" index="2"]
-parameters/Locomotion/current_state = ""
-parameters/Locomotion/current_index = -1
-parameters/PunchState/blend_amount = 0
+[node name="Shop_1" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("9_ngax5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 10, 10)
 
-[node name="NPC" parent="." instance=ExtResource("8_m5cvb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44286, -13.6365)
+[node name="Event_2" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("3_cg87y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -20, 0)
 
-[node name="RightHand" parent="NPC" index="1"]
-transform = Transform3D(0.190682, -0.48112, -0.855666, 0.915121, -0.228312, 0.332306, -0.355238, -0.846403, 0.396748, 0.104506, 0.936954, -0.381341)
+[node name="Portal_3" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("6_k7h2l")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -45, 10, 0)
 
-[node name="GeneralSkeleton" parent="NPC/YBot/Armature" index="0"]
-bones/0/position = Vector3(0.00433361, 0.946109, -0.0136635)
-bones/0/rotation = Quaternion(0.0437657, -0.133124, -0.00522992, 0.990119)
-bones/1/rotation = Quaternion(0.200364, 0.0361985, 0.00697317, 0.979028)
-bones/2/rotation = Quaternion(0.0322537, 0.0106708, -0.00697367, 0.999398)
-bones/3/rotation = Quaternion(0.0321884, 0.0113228, -0.00697529, 0.999393)
-bones/4/rotation = Quaternion(-0.110762, 0.0120202, 0.0185216, 0.993602)
-bones/5/rotation = Quaternion(-0.124447, 0.0641825, -0.0371722, 0.98945)
-bones/7/rotation = Quaternion(0.335412, 0.592011, 0.573308, -0.456442)
-bones/8/rotation = Quaternion(0.27493, 0.722, -0.62141, 0.130304)
-bones/9/rotation = Quaternion(0.243671, -0.663928, 0.272663, 0.652288)
-bones/10/rotation = Quaternion(0.145057, 0.543328, 0.0185652, 0.826685)
-bones/11/rotation = Quaternion(0.0634171, -0.066037, -0.0120931, 0.995726)
-bones/12/rotation = Quaternion(-0.00485515, 0.857458, 0.0768591, 0.508759)
-bones/13/rotation = Quaternion(0.149101, 0.532881, 0.369712, 0.746405)
-bones/14/scale = Vector3(1.00002, 1, 0.999985)
-bones/15/rotation = Quaternion(0.61339, -0.092988, -0.0530351, 0.782492)
-bones/16/rotation = Quaternion(0.397768, -0.017206, -0.0217747, 0.917066)
-bones/17/rotation = Quaternion(0.633612, -0.034078, 0.0236697, 0.772538)
-bones/19/rotation = Quaternion(0.664985, -0.0867683, -0.115995, 0.732674)
-bones/20/rotation = Quaternion(0.594015, 1.17533e-05, -0.000248045, 0.804454)
-bones/21/rotation = Quaternion(0.173141, -0.0110055, 0.00275272, 0.984832)
-bones/23/rotation = Quaternion(0.698062, -0.18022, -0.103058, 0.685281)
-bones/24/rotation = Quaternion(0.430518, -0.00356948, -0.00773472, 0.902542)
-bones/25/rotation = Quaternion(0.337553, 0.0301831, -0.0889897, 0.936604)
-bones/27/rotation = Quaternion(0.689703, -0.236263, -0.0370606, 0.68346)
-bones/28/rotation = Quaternion(0.485781, -0.000230461, -0.00022617, 0.874081)
-bones/29/rotation = Quaternion(0.227477, 2.7895e-05, -7.56383e-05, 0.973783)
-bones/31/rotation = Quaternion(0.231032, -0.651469, -0.550778, -0.467821)
-bones/32/rotation = Quaternion(-0.33786, 0.721549, -0.583073, -0.158884)
-bones/33/rotation = Quaternion(0.262298, 0.656685, -0.411675, 0.574881)
-bones/34/rotation = Quaternion(0.132972, -0.49805, -0.0857887, 0.852587)
-bones/35/rotation = Quaternion(-0.0966642, -0.0786311, -0.0323941, 0.991677)
-bones/36/rotation = Quaternion(0.12682, -0.737596, -0.00885114, 0.663167)
-bones/37/rotation = Quaternion(0.376362, -0.232304, -0.0882254, 0.892526)
-bones/38/scale = Vector3(1.00002, 1, 0.999984)
-bones/39/rotation = Quaternion(0.271458, -0.141812, 0.0441076, 0.950923)
-bones/40/rotation = Quaternion(0.832976, 0.00305201, -0.000113428, 0.553301)
-bones/41/rotation = Quaternion(0.286723, -0.0100479, 0.0136924, 0.957863)
-bones/43/rotation = Quaternion(0.775711, -0.0158497, 0.0899636, 0.624442)
-bones/44/rotation = Quaternion(0.507678, -2.7597e-05, 0.000210583, 0.861547)
-bones/45/rotation = Quaternion(0.270978, -0.0165377, 0.00151569, 0.962442)
-bones/47/rotation = Quaternion(0.799924, 0.0339631, 0.0851186, 0.593063)
-bones/48/rotation = Quaternion(0.352358, -0.00445525, 0.00173187, 0.935853)
-bones/49/rotation = Quaternion(0.431496, -0.00897006, -0.00381371, 0.902062)
-bones/51/rotation = Quaternion(0.740816, 0.0757571, 0.139891, 0.652597)
-bones/52/rotation = Quaternion(0.373358, -3.21865e-06, 0.000151575, 0.927687)
-bones/53/rotation = Quaternion(0.482935, 1.55121e-05, 0.00023663, 0.875656)
-bones/55/rotation = Quaternion(0.0489, 0.29241, 0.952596, -0.0683156)
-bones/56/rotation = Quaternion(-0.0230511, 0.961941, -0.269996, 0.0352074)
-bones/57/rotation = Quaternion(-0.0326964, 0.698119, -0.714269, 0.0371475)
-bones/58/rotation = Quaternion(0.0124722, 0.999915, 0.00343397, 0.00186796)
-bones/60/rotation = Quaternion(-0.105979, 0.140438, 0.980289, 0.0898852)
-bones/61/rotation = Quaternion(0.00308949, 0.958087, -0.279914, -0.0608974)
-bones/62/rotation = Quaternion(0.0628369, 0.587121, -0.804103, -0.0689857)
-bones/63/rotation = Quaternion(-0.00969823, 0.999894, 0.0107252, 0.00189498)
+[node name="EliteMonster_4" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("2_cjowe")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 10, 20)
 
-[node name="EnemyAnim" parent="NPC" index="5"]
-parameters/Death/blend_amount = 0
+[node name="Rest_5" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("8_fxml8")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -25, -20, 20)
 
-[node name="StateMchine" parent="NPC" index="8" node_paths=PackedStringArray("player")]
-player = NodePath("../../Player")
+[node name="Treasure_6" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("11_3jd1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -20, 0)
 
-[node name="Level" type="Node3D" parent="."]
+[node name="Hidden_7" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("4_pn7jq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -45, 0, -10)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Level"]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0.253296, 0, -1.61896)
-material_override = SubResource("StandardMaterial3D_muoal")
-use_collision = true
-size = Vector3(0.800171, 1, 0.670471)
-material = SubResource("StandardMaterial3D_ilcfm")
+[node name="Monsters_8" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("5_62po8")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 5, 0, 0)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.97169, 2.09625, -4.58049)
-use_collision = true
-size = Vector3(1, 5.1925, 1)
-material = SubResource("StandardMaterial3D_2wkfl")
+[node name="Trap_9" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("10_im4w8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25, 10, -10)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3278, 1.87888, 4.0507)
-use_collision = true
-size = Vector3(6.82373, 4.75775, 1)
-material = SubResource("StandardMaterial3D_wqauh")
+[node name="Stairs_10" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("6_ccyjp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 45, -5, -5)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7248, 0.620239, 0.249964)
-use_collision = true
-size = Vector3(2.88477, 2.24048, 6.77393)
-material = SubResource("StandardMaterial3D_rfsxo")
+[node name="Stairs_11" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("6_ccyjp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -15, -20)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9908, 0.874786, -1.96178)
-use_collision = true
-size = Vector3(1, 2.74957, 1.5791)
-material = SubResource("StandardMaterial3D_pd0dg")
+[node name="Stairs_12" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("6_ccyjp")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -35, 5, 5)
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7576, 0.449399, -2.60596)
-use_collision = true
-size = Vector3(4.78174, 1.37, 6.21191)
-material = SubResource("StandardMaterial3D_yp1fk")
+[node name="Stairs_13" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("6_ccyjp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 15, 0)
 
-[node name="InteractableTestCube3" parent="." instance=ExtResource("6_nmnmc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12219, 13.2079, 0)
+[node name="Corridor_14" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, -20, -10)
 
-[node name="InteractableTestCube4" parent="." instance=ExtResource("6_nmnmc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17957, 13.1465, 0)
+[node name="Corridor_15" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, -20, -10)
 
-[node name="InteractableTestCube5" parent="." instance=ExtResource("6_nmnmc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.6591, 0)
+[node name="Corridor_16" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -20, -10)
 
-[node name="TestSphere6" parent="." instance=ExtResource("7_a3rol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.67193, 3, 0)
+[node name="Corridor_17" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -20, -10)
 
-[node name="TestSphere7" parent="." instance=ExtResource("7_a3rol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23073, 4.98123, 0)
+[node name="Corridor_18" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -20, -10)
 
-[node name="TestSphere8" parent="." instance=ExtResource("7_a3rol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25841, 6.61858, 0)
+[node name="Corridor_19" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -20, -10)
 
-[node name="Sword" parent="." instance=ExtResource("8_ih1h8")]
-transform = Transform3D(1, 0, 0, 0, 0.0194242, -0.999811, 0, 0.999811, 0.0194242, 0, 8.20364, 9.90214)
+[node name="Corridor_20" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -20, -10)
 
-[editable path="Player"]
-[editable path="NPC"]
-[editable path="NPC/RightHand/Dragonslayer_low"]
+[node name="Corridor_21" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -20, -10)
+
+[node name="Corridor_22" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -20, 10)
+
+[node name="Corridor_23" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -20, 20)
+
+[node name="Corridor_24" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -20, -20)
+
+[node name="Corridor_25" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -10, -20)
+
+[node name="Corridor_26" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -10, -10)
+
+[node name="Corridor_27" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -10, -10)
+
+[node name="Corridor_28" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -10, -10)
+
+[node name="Corridor_29" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -10, -10)
+
+[node name="Corridor_30" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, -10, -10)
+
+[node name="Corridor_31" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, -10, -20)
+
+[node name="Corridor_32" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, -10, -20)
+
+[node name="Corridor_33" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0, 10)
+
+[node name="Corridor_34" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, 10)
+
+[node name="Corridor_35" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 10)
+
+[node name="Corridor_36" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 10)
+
+[node name="Corridor_37" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
+
+[node name="Corridor_38" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="Corridor_39" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 0)
+
+[node name="Corridor_40" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+
+[node name="Corridor_41" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -10)
+
+[node name="Corridor_42" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, -10)
+
+[node name="Corridor_43" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, -20)
+
+[node name="Corridor_44" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, -20)
+
+[node name="Corridor_45" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -10)
+
+[node name="Corridor_46" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 10)
+
+[node name="Corridor_47" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 20)
+
+[node name="Corridor_48" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 20)
+
+[node name="Corridor_49" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 10, -10)
+
+[node name="Corridor_50" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 10, -10)
+
+[node name="Corridor_51" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 10, -20)
+
+[node name="Corridor_52" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 10, 0)
+
+[node name="Corridor_53" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 10, 0)
+
+[node name="Corridor_54" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 10, -10)
+
+[node name="Corridor_55" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 10, 20)
+
+[node name="Corridor_56" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 10, 20)
+
+[node name="Corridor_57" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, 20)
+
+[node name="Corridor_58" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 10, 20)
+
+[node name="Corridor_59" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 10, 10)
+
+[node name="Corridor_60" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 10, 0)
+
+[node name="Corridor_61" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 20, 0)
+
+[node name="Corridor_62" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 20, 10)
+
+[node name="Corridor_63" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 20, 10)
+
+[node name="Corridor_64" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 20, 10)
+
+[node name="Corridor_65" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 20, 10)
+
+[node name="Corridor_66" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 20, 10)
+
+[node name="Corridor_67" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 20, 10)
+
+[node name="Corridor_68" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 10, -20)
+
+[node name="Corridor_69" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 10, -10)
+
+[node name="Corridor_70" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 10, -10)
+
+[node name="Corridor_71" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -20, 10)
+
+[node name="Corridor_72" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 10, 10)
+
+[node name="Corridor_73" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, -20, 20)
+
+[node name="Corridor_74" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, -20, 10)
+
+[node name="Corridor_75" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -20, 10)
+
+[node name="Corridor_76" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, 0)
+
+[node name="Corridor_77" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, 10)
+
+[node name="Corridor_78" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, 20)
+
+[node name="Corridor_79" parent="DungeonGenerator3D/RoomsContainer" instance=ExtResource("7_pb5qr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 10, -20)
