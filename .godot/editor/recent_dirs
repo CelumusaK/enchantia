@@ -1,9 +1,10 @@
+res://assets/Character/anim
+res://scenes/asset-scenes/water
 res://scenes/asset-scenes
 res://scenes/asset-scenes/weapons
 res://assets/Character/animation
 res://assets/Character
 res://scenes/fsm
-res://scenes/hitbox
 res://scenes/player/state_machine
 res://scenes/fsm/player
 res://scenes/player
@@ -14,5 +15,4 @@ res://scenes/fsm/enemy
 res://
 res://scenes/fsm/player/attack
 res://scenes/NPC
-res://addons/proton_scatter/demos/assets
 res://scenes

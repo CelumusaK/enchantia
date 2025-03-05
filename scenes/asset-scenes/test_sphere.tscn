@@ -1,6 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://crx8qk1awcqn7"]
-
-[ext_resource type="Script" path="res://inventory/interactable_item.gd" id="1_t3gwg"]
+[gd_scene load_steps=5 format=4 uid="uid://crx8qk1awcqn7"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_0mdix"]
 
@@ -24,10 +22,8 @@ emission_energy_multiplier = 16.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_obcnk"]
 
-[node name="TestSphere" type="RigidBody3D" node_paths=PackedStringArray("ItemHighLightMesh")]
+[node name="TestSphere" type="RigidBody3D"]
 collision_layer = 2
-script = ExtResource("1_t3gwg")
-ItemHighLightMesh = NodePath("MeshInstance3D/Outline")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_0mdix")

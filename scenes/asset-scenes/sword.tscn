@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=4 uid="uid://5k3nbe6wwu73"]
 
-[ext_resource type="Script" path="res://inventory/interactable_item.gd" id="1_6sp0u"]
-[ext_resource type="Script" path="res://scenes/asset-scenes/sword_hit_boxt.gd" id="2_cplxe"]
+[ext_resource type="Script" uid="uid://cx4u6v03dnxak" path="res://inventory/interactable_item.gd" id="1_6sp0u"]
+[ext_resource type="Script" uid="uid://dl7o0b7ql0o4d" path="res://scenes/asset-scenes/sword_hit_boxt.gd" id="2_cplxe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pgoal"]
 resource_name = "Metal_rough"

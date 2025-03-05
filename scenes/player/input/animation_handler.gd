@@ -23,6 +23,21 @@ func update_animation(state: String, delta: float):
 		
 		"Sprint":
 			animation_tree.set("parameters/Locomotion/transition_request", "Sprint")
+			
+		"WaterIdle":
+			animation_tree.set("parameters/Locomotion/transition_request", "WaterIdle")
+			
+		"WaterMove":
+			animation_tree.set("parameters/Locomotion/transition_request", "WaterMove")
+			
+		"LedgeHold":
+			animation_tree.set("parameters/Locomotion/transition_request", "LedgeHold")
+			
+		"MoveLeft":
+			animation_tree.set("parameters/Locomotion/transition_request", "MoveLeft")
+			
+		"MoveRight":
+			animation_tree.set("parameters/Locomotion/transition_request", "MoveRight")
 	
 	
 func handle_attack_animation(weapon_type: String, combo_step: int, delta: float):

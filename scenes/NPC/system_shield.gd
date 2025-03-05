@@ -8,7 +8,6 @@ extends Area3D
 @export var damping: float = 0.5
 
 func _on_body_entered(body: Node3D) -> void:
-	print(body)
 	outline.show()
 	if body and body.global_position and npc:
 		#var body_position = body.global_transform.origin

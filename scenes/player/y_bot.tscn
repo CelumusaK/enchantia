@@ -1,8 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://d2plg41vr7uj8"]
 
 [ext_resource type="PackedScene" uid="uid://b3ip1sd1pw4af" path="res://assets/Character/YBot.glb" id="1_gkvrc"]
-[ext_resource type="AnimationLibrary" uid="uid://csedx7x5t81jk" path="res://assets/Character/animation/addittional_run_animations.res" id="2_nq4o2"]
-[ext_resource type="AnimationLibrary" uid="uid://cj7o54wmrrd8s" path="res://assets/Character/animation/back_animations.res" id="2_x4coe"]
 
 [sub_resource type="Animation" id="Animation_vv52y"]
 resource_name = "Armature|mixamo_com|Layer0"
@@ -5460,21 +5458,27 @@ tracks/54/keys = PackedFloat32Array(0, 1, 1.28087e-07, 0.998625, 0.0524299, -6.2
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lrdle"]
 _data = {
-"Armature|mixamo_com|Layer0": SubResource("Animation_vv52y"),
-"BasicPunch": SubResource("Animation_auile"),
-"CrouchIdle": SubResource("Animation_ayk23"),
-"CrouchWalk": SubResource("Animation_qglni"),
-"Dying": SubResource("Animation_57dvx"),
-"FallLand": SubResource("Animation_xj0ft"),
-"Falling": SubResource("Animation_kjnjq"),
-"Idle": SubResource("Animation_wcnj1"),
-"Jump": SubResource("Animation_got4y"),
-"RoungHouseKick": SubResource("Animation_lv3hc"),
-"Running": SubResource("Animation_nme1c"),
-"Walking": SubResource("Animation_ceixl"),
-"straifLeft": SubResource("Animation_og16d"),
-"straifRight": SubResource("Animation_mb0up")
+&"Armature|mixamo_com|Layer0": SubResource("Animation_vv52y"),
+&"BasicPunch": SubResource("Animation_auile"),
+&"CrouchIdle": SubResource("Animation_ayk23"),
+&"CrouchWalk": SubResource("Animation_qglni"),
+&"Dying": SubResource("Animation_57dvx"),
+&"FallLand": SubResource("Animation_xj0ft"),
+&"Falling": SubResource("Animation_kjnjq"),
+&"Idle": SubResource("Animation_wcnj1"),
+&"Jump": SubResource("Animation_got4y"),
+&"RoungHouseKick": SubResource("Animation_lv3hc"),
+&"Running": SubResource("Animation_nme1c"),
+&"Walking": SubResource("Animation_ceixl"),
+&"straifLeft": SubResource("Animation_og16d"),
+&"straifRight": SubResource("Animation_mb0up")
 }
+
+[sub_resource type="Resource" id="Resource_lwx4b"]
+metadata/__load_path__ = "res://assets/Character/animation/addittional_run_animations.res"
+
+[sub_resource type="Resource" id="Resource_61oux"]
+metadata/__load_path__ = "res://assets/Character/animation/back_animations.res"
 
 [node name="YBot" instance=ExtResource("1_gkvrc")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
@@ -5539,6 +5543,6 @@ bones/63/rotation = Quaternion(0.00868796, 0.999901, 0.0107363, -0.00263801)
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {
 "": SubResource("AnimationLibrary_lrdle"),
-"addittional_run_animations": ExtResource("2_nq4o2"),
-"back_animations": ExtResource("2_x4coe")
+"addittional_run_animations": SubResource("Resource_lwx4b"),
+"back_animations": SubResource("Resource_61oux")
 }

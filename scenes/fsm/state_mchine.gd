@@ -29,6 +29,7 @@ func register_state(state: Node, parent_path: String) -> void:
 	var state_path = parent_path + "/" + state.name if parent_path else state.name
 	states[state_path.to_lower()] = state
 	state.Transitioned.connect(on_child_transition)
+	
 	for child in state.get_children():
 		if child is State:
 			register_state(child, state_path)
@@ -41,6 +42,7 @@ func _process(delta: float) -> void:
 	for child in get_children():
 		if child is State:
 			if state_to_follow:
+				print(state_to_follow)
 				child.next_state = state_to_follow
 	
 	if current_state:

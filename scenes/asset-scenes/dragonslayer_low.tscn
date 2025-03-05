@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://td8188kepmxh" path="res://assets/weapons/dragonslayer_from_berserk_0.png" id="1_8444h"]
 [ext_resource type="Texture2D" uid="uid://ya3msthlbpt2" path="res://assets/weapons/dragonslayer_from_berserk_1.png" id="2_5tkff"]
 [ext_resource type="Texture2D" uid="uid://dv8v1cdkt7133" path="res://assets/weapons/dragonslayer_from_berserk_2.png" id="3_00etf"]
-[ext_resource type="Script" path="res://scenes/asset-scenes/hit_box.gd" id="4_xm1nv"]
+[ext_resource type="Script" uid="uid://3rhs2naay1ey" path="res://scenes/asset-scenes/hit_box.gd" id="4_xm1nv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vspk7"]
 resource_name = "DefaultMaterial"
@@ -56,7 +56,6 @@ radius = 0.169913
 height = 2.19368
 
 [node name="Dragonslayer_low" type="RigidBody3D"]
-transform = Transform3D(-0.161607, -0.49164, 0.855671, 0.248232, 0.818939, 0.517417, -0.955125, 0.296023, -0.0103055, -0.0271433, 0.0705872, 0.0284459)
 collision_layer = 4
 freeze = true
 

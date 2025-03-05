@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://cy2bnxx4jasx3"]
 
-[ext_resource type="Script" path="res://inventory/interactable_item.gd" id="1_5np45"]
+[ext_resource type="Script" uid="uid://cx4u6v03dnxak" path="res://inventory/interactable_item.gd" id="1_5np45"]
 [ext_resource type="PackedScene" uid="uid://basi8kvugswbl" path="res://scenes/asset-scenes/hit_boxt.tscn" id="2_nlbto"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_c1siq"]

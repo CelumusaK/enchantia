@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ckjlas555qe1r"]
 
-[ext_resource type="Script" path="res://scenes/NPC/system_shield.gd" id="1_aflgt"]
+[ext_resource type="Script" uid="uid://drnn6epbgfl0n" path="res://scenes/NPC/system_shield.gd" id="1_aflgt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_arg0q"]
 radius = 0.638715

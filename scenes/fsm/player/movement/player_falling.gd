@@ -4,18 +4,19 @@ class_name PlayerFalling
 var _delta: float
 
 func Enter():
-	player.velocity += player.get_gravity() * _delta
+	pass
 	
 func Exit():
 	pass
 	
 func Update(delta: float):
 	_delta = delta
-	if player.velocity.y == 0:
-		Transitioned.emit(self, "Idle")
+	if next_state != "" and next_state != "Falling":
+		Transitioned.emit(self, next_state)
 	
 func Physics_Update(delta: float):
-	player.velocity += player.get_gravity() * delta
+	if !player.is_on_floor() or player.velocity.y != 0: 
+		player.velocity += player.get_gravity() * delta
 	player.move_and_slide()
 		
 		

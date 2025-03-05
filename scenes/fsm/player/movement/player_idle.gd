@@ -2,7 +2,7 @@ extends State
 class_name PlayerIdle
 
 func Enter():
-	player.velocity = Vector3.ZERO
+	pass
 	
 func Exit():
 	pass
