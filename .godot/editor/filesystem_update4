@@ -4,7 +4,6 @@ res://scenes/fsm/stats.gd
 res://scenes/asset-scenes/water/under_water.gdshader
 res://scenes/asset-scenes/water/under_waters.gdshader
 res://scenes/asset-scenes/water/water.tres
-res://scenes/fsm/state_mchine.gd
 res://scenes/main-game/main_game.tscn
 res://scenes/player/state_machine/state_machine.tscn
 res://scenes/asset-scenes/water/water.tscn
@@ -24,5 +23,8 @@ res://scenes/fsm/player/movement/player_run.gd
 res://scenes/fsm/player/movement/player_water_idle.gd
 res://scenes/fsm/player/movement/player_water_move.gd
 res://scenes/fsm/state.gd
+res://scenes/fsm/state_mchine.gd
 res://scenes/asset-scenes/water/water.gd
-res://assets/Character/anim/anim.res
+res://assets/asset-scenes/water/water.tres
+res://assets/asset-scenes/water/under_water.gdshader
+res://assets/asset-scenes/water/under_waters.gdshader

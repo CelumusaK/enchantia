@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://d2plg41vr7uj8"]
 
-[ext_resource type="PackedScene" uid="uid://b3ip1sd1pw4af" path="res://assets/Character/YBot.glb" id="1_gkvrc"]
+[ext_resource type="PackedScene" uid="uid://b3ip1sd1pw4af" path="res://assets/game_assets/Character/YBot.glb" id="1_gkvrc"]
 
 [sub_resource type="Animation" id="Animation_vv52y"]
 resource_name = "Armature|mixamo_com|Layer0"

@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqk8ywh47jjog"]
-
-[ext_resource type="PackedScene" uid="uid://bn3s4jr1t5o" path="res://assets/weapons/dragonslayer_from_berserk.glb" id="1_rgkrw"]
-
-[node name="Sketchfab_Scene" instance=ExtResource("1_rgkrw")]

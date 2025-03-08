@@ -1,12 +1,12 @@
 [gd_scene load_steps=18 format=3 uid="uid://caun3oc3wgcil"]
 
 [ext_resource type="PackedScene" uid="uid://b6gle7nwge0v" path="res://scenes/player/player.tscn" id="2_42von"]
-[ext_resource type="PackedScene" uid="uid://cs1bvfon77u5c" path="res://scenes/asset-scenes/water/water.tscn" id="5_qh7w4"]
-[ext_resource type="PackedScene" uid="uid://cy2bnxx4jasx3" path="res://scenes/asset-scenes/interactable_test_cube.tscn" id="6_nmnmc"]
-[ext_resource type="PackedScene" uid="uid://crx8qk1awcqn7" path="res://scenes/asset-scenes/test_sphere.tscn" id="7_a3rol"]
-[ext_resource type="PackedScene" uid="uid://5k3nbe6wwu73" path="res://scenes/asset-scenes/sword.tscn" id="8_ih1h8"]
-[ext_resource type="Texture2D" uid="uid://c5cyb5wn3lj5l" path="res://assets/textures/texture_07.png" id="8_r5yp6"]
-[ext_resource type="Texture2D" uid="uid://buolqkg0igmi1" path="res://assets/textures/texture_06.png" id="8_sd6ss"]
+[ext_resource type="PackedScene" uid="uid://cs1bvfon77u5c" path="res://assets/asset-scenes/water/water.tscn" id="5_qh7w4"]
+[ext_resource type="PackedScene" uid="uid://cy2bnxx4jasx3" path="res://assets/asset-scenes/interactable_test_cube.tscn" id="6_nmnmc"]
+[ext_resource type="PackedScene" uid="uid://crx8qk1awcqn7" path="res://assets/asset-scenes/test_sphere.tscn" id="7_a3rol"]
+[ext_resource type="PackedScene" uid="uid://5k3nbe6wwu73" path="res://assets/asset-scenes/sword.tscn" id="8_ih1h8"]
+[ext_resource type="Texture2D" uid="uid://c5cyb5wn3lj5l" path="res://assets/game_assets/textures/texture_07.png" id="8_r5yp6"]
+[ext_resource type="Texture2D" uid="uid://buolqkg0igmi1" path="res://assets/game_assets/textures/texture_06.png" id="8_sd6ss"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w5a72"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
