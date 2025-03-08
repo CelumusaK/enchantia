@@ -45,7 +45,7 @@ func handle_ground_movement_and_turning(delta: float, input_package: InputPackag
 	
 func handle_swimming(delta: float, input_package: InputPackage):
 	# Get input direction
-	var input_dir = input_package.input_direction  # From InputPackage
+	var input_dir = input_package.input_direction
 
 	# Get the camera's basis and calculate the movement direction
 	var camera_basis = camera.global_basis

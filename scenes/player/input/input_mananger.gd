@@ -13,10 +13,10 @@ func process_input(delta: float) -> InputPackage:
 	if player.check_water():
 		new_input.input_direction = Input.get_vector("left", "right", "forward", "backwards")
 		
-		if Input.is_action_just_pressed("swimup"):
+		if Input.is_action_pressed("swimup"):
 			new_input.actions.append("swimup")
 			
-		if Input.is_action_just_pressed("swimdown"):
+		if Input.is_action_pressed("swimdown"):
 			new_input.actions.append("swimdown")
 			
 		if new_input.input_direction != Vector2.ZERO:
@@ -37,7 +37,7 @@ func process_input(delta: float) -> InputPackage:
 		new_input.input_direction = Input.get_vector("left", "right", "forward", "backwards")
 		if new_input.input_direction != Vector2.ZERO:
 			new_input.actions.append("run")
-			if Input.is_action_pressed("sprint"):
+			if Input.is_action_pressed("sprint") and player.can_sprint:
 				new_input.actions.append("sprint")
 			
 		if new_input.actions.is_empty():

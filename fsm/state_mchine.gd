@@ -42,7 +42,6 @@ func _process(delta: float) -> void:
 	for child in get_children():
 		if child is State:
 			if state_to_follow:
-				print(state_to_follow)
 				child.next_state = state_to_follow
 	
 	if current_state:

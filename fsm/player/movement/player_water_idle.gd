@@ -22,17 +22,18 @@ func Exit():
 	print("Exited Water State")
 	
 func Update(delta: float):
+	if next_state == "SwimUp":
+		Transitioned.emit(self, "WaterMove")
+	
+	if next_state == "SwimDown":
+		Transitioned.emit(self, "WaterMove")
+
 	if next_state != "" and next_state != "WaterIdle" and next_state != "SwinUp" and next_state != "SwimDown":
 		Transitioned.emit(self, next_state)
 	
 func Physics_Update(delta: float):
 	# Smooth swimming controls
 	var swim_input = Vector3.ZERO
-	if Input.is_action_pressed("swimup"):
-		swim_input.y += 1
-	if Input.is_action_pressed("swimdown"):
-		swim_input.y -= 1
-	
 	# Gradual swim movement with limited acceleration
 	var swim_acceleration = 0.5
 	player.velocity.y = lerp(player.velocity.y, swim_input.y, swim_acceleration * delta)
