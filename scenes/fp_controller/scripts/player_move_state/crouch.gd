@@ -7,6 +7,8 @@ var move_speed: float
 func enter(_msg := {}) -> void:
 	if !player.is_crouched:
 		player.toggle_crouch()
+		
+	player.view_bobbing_amount *= 0.5
 
 
 func handle_input(event: InputEvent) -> void:

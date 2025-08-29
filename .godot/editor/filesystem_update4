@@ -1,9 +1,6 @@
-res://scenes/main-game/main_game.tscn
-res://addons/SimpleDungeons/debug_visuals/WireframeColorMat.tres
-res://scenes/fsm/stats.gd
 res://asset-scenes/effects/hit_shader.tres
 res://asset-scenes/effects/hit_shader_sparks.tres
 res://asset-scenes/effects/level_up_aura.tres
 res://scenes/fp_controller/player.tscn
-res://dungeon_rooms/entrance_room.tscn
-res://dungeon_rooms/exit_room.tscn
+res://scenes/main-game/main_game.tscn
+res://scenes/main-game/test_world.tscn

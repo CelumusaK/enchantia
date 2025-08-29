@@ -81,36 +81,8 @@ var can_pause: bool = true
 
 func _ready() -> void:
 	default_view_bobbing_amount = view_bobbing_amount
-	check_controls()
 	if can_pause:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
-
-func check_controls() -> void:
-	if !InputMap.has_action(MOVE_FORWARD):
-		push_error("No control mapped for 'move_forward', using default...")
-		_add_input_map_event(MOVE_FORWARD, KEY_W)
-	if !InputMap.has_action(MOVE_BACK):
-		push_error("No control mapped for 'move_back', using default...")
-		_add_input_map_event(MOVE_BACK, KEY_S)
-	if !InputMap.has_action(MOVE_LEFT):
-		push_error("No control mapped for 'move_left', using default...")
-		_add_input_map_event(MOVE_LEFT, KEY_A)
-	if !InputMap.has_action(MOVE_RIGHT):
-		push_error("No control mapped for 'move_right', using default...")
-		_add_input_map_event(MOVE_RIGHT, KEY_D)
-	if !InputMap.has_action(JUMP):
-		push_error("No control mapped for 'jump', using default...")
-		_add_input_map_event(JUMP, KEY_SPACE)
-	if !InputMap.has_action(CROUCH):
-		push_error("No control mapped for 'crouch', using default...")
-		_add_input_map_event(CROUCH, KEY_C)
-	if !InputMap.has_action(SPRINT):
-		push_error("No control mapped for 'sprint', using default...")
-		_add_input_map_event(SPRINT, KEY_SHIFT)
-	if !InputMap.has_action(PAUSE):
-		push_error("No control mapped for 'pause', using default...")
-		_add_input_map_event(PAUSE, KEY_ESCAPE)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -238,10 +210,3 @@ func _on_state_machine_transitioned(state: PlayerState) -> void:
 		view_bobbing_player.play("view_bobbing", .5, view_bobbing_amount, false)
 	else:
 		view_bobbing_player.play("RESET", .5)
-
-
-func _add_input_map_event(action_name: String, keycode: int) -> void:
-	var event = InputEventKey.new()
-	event.keycode = keycode
-	InputMap.add_action(action_name)
-	InputMap.action_add_event(action_name, event)
